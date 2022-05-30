@@ -1,0 +1,171 @@
+header {
+  background: #fff;
+  height: 70px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+header .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+header .container .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 70px;
+}
+header .container .left .logo {
+  margin-right: 32px;
+  -webkit-box-flex: 114px;
+  -ms-flex: 114px 0 0px;
+  flex: 114px 0 0;
+  height: 37px;
+  background: url("../../img/shared/logo.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+header .container .left .statement {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 32px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #fff;
+  border: 1px solid #ff7300;
+  font: 13px "MONR";
+  color: #ff7300;
+  text-decoration: none;
+  white-space: nowrap;
+}
+header .container .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+header .container .right .users {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+header .container .right .users .user {
+  padding: 0;
+  background: #fff;
+  z-index: 1;
+}
+header .container .right .users .user .user-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 69px;
+  padding: 0 20px;
+}
+header .container .right .users .user .user-main .avatar {
+  -webkit-box-flex: 45px;
+  -ms-flex: 45px 0 0px;
+  flex: 45px 0 0;
+  min-width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-image: url("../../img/shared/user.svg");
+  background-size: 21px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #FAF7F6;
+}
+header .container .right .users .user .user-main .avatar img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+header .container .right .users .user .user-main .name {
+  padding: 0 0 0 10px;
+  font: 16px "MONR";
+}
+header .container .right .users .user .user-main .name span {
+  display: block;
+  font: 14px "MONR";
+  color: #7D7978;
+}
+header .container .right .users .user .user-ext {
+  height: 0;
+  overflow: hidden;
+  border-top: none;
+  padding: 0;
+}
+header .container .right .users .user .user-ext span {
+  display: block;
+  padding: 3px 0 4px 0;
+  font: 16px "MONR";
+}
+header .container .right .users .user .user-ext .profile-btn {
+  display: block;
+  height: 32px;
+  padding: 6px 20px 0;
+  font: 15px "MONR";
+  text-decoration: none;
+}
+header .container .right .users .user .user-ext .profile-btn:hover {
+  background-color: #f6f6f6;
+  text-decoration: none;
+}
+header .container .right .users .user:hover {
+  -webkit-box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+header .container .right .users .user:hover .user-ext {
+  height: auto;
+  overflow: visible;
+  padding: 11px 20px 20px;
+}
+header .container .right .users .user:hover .user-me-ext {
+  padding: 5px 0 6px;
+}
+header .container .right .users .user-me .user-ext {
+  padding: 0;
+}
+header .container .right-mobile {
+  display: none;
+}
+
+.menu-mobile {
+  display: none;
+}

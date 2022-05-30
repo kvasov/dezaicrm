@@ -1,0 +1,105 @@
+<section class="step-1">
+  <div class="container">
+    <div class="title" ng-if="!showBtns">
+      Please upload drawings or floor plans
+    </div>
+    <div class="desc">
+      <div class="left">
+        <div class="txt" ng-if="!showBtns">
+          Once the drawings have been uploaded, the designer will contact you
+          with further details.
+        </div>
+
+        <div class="btns" ng-if="showBtns">
+          <input
+            id="input-file-2"
+            type="file"
+            ng-file-model="files"
+            filetype="file1"
+            errors="file1errors"
+            multiple
+          />
+          <label class="btn add" for="input-file-2">Add files</label>
+          <a class="btn send" ng-click="upload()" ng-class="canSendCls()"
+            >Send to a designer</a
+          >
+        </div>
+      </div>
+      <div class="skip">Skip this step</div>
+    </div>
+
+    <div class="progress" ng-show="showProgress">
+      <div class="bar" ng-style="{'width' : progressBar + '%'}"></div>
+    </div>
+
+    <div
+      dropzone
+      filetype="file1"
+      errors="file1errors"
+      class="upload-files"
+      ng-if="!showBtns"
+      ng-class="divClass"
+    >
+      <input
+        id="input-file"
+        type="file"
+        ng-file-model="files"
+        filetype="file1"
+        errors="file1errors"
+        multiple
+      />
+      <div class="left">
+        <div class="info">
+          <label for="input-file">Select</label> and upload files
+        </div>
+        <div class="errors" ng-if="files.file1errors.length > 0">
+          {{errorsStr()}} file size too large
+        </div>
+      </div>
+      <div class="right">The maximum file size is 10 mb.</div>
+    </div>
+
+    <div class="errors-2" ng-if="files.file1errors.length > 0 && showBtns">
+      {{errorsStr()}} file size too large
+    </div>
+
+    <div class="list-files">
+      <div class="file-item" ng-repeat="file in files.file1">
+        <div class="file-name">{{file.name}}</div>
+        <div class="file-size">{{file.size | fileSize}}</div>
+        <div
+          class="file-remove tooltipster"
+          ng-show="file != null"
+          ng-click="removeFile('file1', $index)"
+        ></div>
+      </div>
+    </div>
+
+    <div class="no-photo" ng-if="files.file1.length == 0 && showBtns">
+      Нет загруженных файлов
+    </div>
+
+    <!-- <input
+      type="file"
+      ng-file-model="files2"
+      filetype="file2"
+      errors="file2errors"
+      multiple
+    />
+
+    <div ng-repeat="file in files.file2">
+      {{file.name}}
+
+      <img
+        ng-src="{{file.url}}"
+        ng-show="file != null"
+        alt=""
+        style="height: 20px; width: 20px"
+      />
+      <div>{{file.name}}</div>
+      <div ng-show="file != null" ng-click="removeFile('file2', $index)">
+        delete
+      </div>
+    </div> -->
+  </div>
+</section>

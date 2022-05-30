@@ -1,0 +1,235 @@
+.step-1 {
+  padding: 65px 0 0;
+
+  .container {
+    .title {
+      margin-bottom: 20px;
+      font: 32px 'MONM';
+    }
+
+    .desc {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 34px;
+
+      .left {
+        display: flex;
+        align-items: center;
+
+        .txt {
+          font: 16px 'MONR';
+          color: #7D7978;
+        }
+
+        .btns {
+          .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            height: 40px;
+            padding: 0 31px;
+            font: 13px 'MONR';
+            cursor: pointer;
+          }
+
+          input {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+          }
+
+          .add {
+            margin-right: 16px;
+            padding-left: 61px;
+            border: 1.5px solid #3A3029;
+            background-image: url('/app/img/step-1/upload-bold.svg');
+            background-size: 24px;
+            background-repeat: no-repeat;
+            background-position: left 31px center;
+          }
+
+          .send {
+            background-color: #FF7300;
+            color: #fff;
+
+            &.disabled {
+              background-color: #D8D6D4;
+              cursor: default;
+            }
+          }
+        }
+      }
+
+      .skip {
+        padding-right: 27px;
+        font: 16px 'MONR';
+        color: #41464F;
+        text-decoration: none;
+        background: url('../img/shared/skip-arrow.svg');
+        background-position: right 6px center;
+        background-repeat: no-repeat;
+        background-size: 8px 14px;
+        cursor: pointer;
+      }
+    }
+
+    .progress {
+      position: relative;
+      margin: 10px 0 20px;
+      height: 4px;
+      border-radius: 2px;
+      background-color: #ECE5E3;
+
+      .bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 4px;
+        border-radius: 2px;
+        background-color: #FF7300;
+      }
+    }
+
+    .upload-files {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      clip-path: inset(0px round 16px 16px 16px 16px);
+      // border: 1px dashed #D3CAC3;
+      // border-radius: 16px;
+      height: 145px;
+      padding: 0 40px;
+      background-color: #FAF7F6;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -4px;
+        top: -4px;
+        right: -4px;
+        bottom: -4px;
+        border: 5px dashed #D3CAC3;
+        border-radius: 20px;
+        box-sizing: border-box;
+        z-index: -1;
+      }
+
+      &.on-drag-enter::before {
+        border: 5px dashed #9a887a;
+      }
+
+      input {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+      }
+
+      .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 65px;
+        padding-left: 88px;
+        background-image: url('../../app/img/step-1/upload.svg');
+        background-size: 65px;
+        background-repeat: no-repeat;
+        background-position: left center;
+        font: 16px 'MONM';
+
+        .info {
+          margin-bottom: 10px;
+
+          label {
+            margin-right: 2px;
+            font: 16px 'MONM';
+            color: #ff8d30;
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+
+        .errors {
+          font: 12px 'MONR';
+          color: #f00;
+        }
+      }
+
+      .right {
+        padding-left: 40px;
+        white-space: nowrap;
+        font: 13px 'MONR';
+        letter-spacing: .007em;
+        color: #7D7978;
+      }
+    }
+
+    .errors-2 {
+      margin: -4px 0 31px;
+      font: 12px 'MONR';
+      color: #f00;
+    }
+
+    .list-files {
+      .file-item {
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        height: 64px;
+        padding: 0 0 0 29px;
+        background-color: #FAF7F6;
+
+        .file-name {
+          flex: 540px 0 0;
+          min-height: 24px;
+          padding: 3px 20px 0 41px;
+          font: 13px 'MONR';
+          background-image: url('../../app/img/step-1/file.svg');
+          background-repeat: no-repeat;
+          background-position: left center;
+          background-size: 22px 24px;
+        }
+
+        .file-size {
+          font: 13px 'MONR';
+          color: #7D7978;
+        }
+
+        .file-remove {
+          position: absolute;
+          top: 50%;
+          right: 26px;
+          width: 24px;
+          height: 24px;
+          background-image: url('../../app/img/step-1/trash.svg');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 24px;
+          transform: translateY(-50%);
+          cursor: pointer;
+        }
+      }
+    }
+
+    .no-photo {
+      margin-top: 160px;
+      padding-top: 73px;
+      background-image: url('/app/img/step-1/no-photo.svg');
+      background-size: 54px 46px;
+      background-repeat: no-repeat;
+      background-position: center top;
+      font: 16px 'MONR';
+      color: #7D7978;
+      text-align: center;
+    }
+  }
+}
+
+#tooltip-remove-file {
+  font: 13px 'MONR';
+}

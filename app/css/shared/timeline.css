@@ -1,0 +1,178 @@
+section.timeline {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+section.timeline .container {
+  position: relative;
+}
+section.timeline .container .inner {
+  position: relative;
+  height: 91px;
+}
+section.timeline .container .inner .ul-timeline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  height: 91px;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+section.timeline .container .inner .ul-timeline .li {
+  position: relative;
+  -webkit-box-flex: 180px;
+  -ms-flex: 180px 0 0px;
+  flex: 180px 0 0;
+  min-width: 180px;
+  padding: 23px 0 0 0;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  height: 91px;
+}
+section.timeline .container .inner .ul-timeline .li.curp {
+  cursor: pointer;
+}
+section.timeline .container .inner .ul-timeline .li .stage {
+  display: inline-block;
+}
+section.timeline .container .inner .ul-timeline .li .stage a {
+  font: 22px "MONM";
+}
+section.timeline .container .inner .ul-timeline .li .title {
+  margin: 4px 0 0;
+}
+section.timeline .container .inner .ul-timeline .li .title a {
+  display: block;
+  width: 140px;
+  font: 13px "MONR";
+  white-space: nowrap;
+}
+section.timeline .container .inner .ul-timeline .li a {
+  text-decoration: none;
+  color: #D8D6D4;
+}
+section.timeline .container .inner .ul-timeline .li.active a {
+  color: #3a3029;
+}
+section.timeline .container .inner .ul-timeline .li.active::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  bottom: 1px;
+  left: 0;
+  background: #FF7300;
+}
+section.timeline .container .inner .ul-timeline .li:last-child {
+  -webkit-box-flex: 245px;
+  -ms-flex: 245px 0 0px;
+  flex: 245px 0 0;
+}
+
+section.deadlines {
+  height: 88px;
+  border-bottom: 1px solid #E5E5E5;
+}
+section.deadlines .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+section.deadlines .container .items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+section.deadlines .container .items .item {
+  padding: 0;
+  background: #fff;
+  z-index: 1;
+}
+section.deadlines .container .items .item:first-child {
+  margin-right: 43px;
+}
+section.deadlines .container .items .item:first-child .item-main {
+  padding: 23px 0 0;
+}
+section.deadlines .container .items .item .item-main {
+  position: relative;
+  height: 87px;
+  padding: 23px 20px 0;
+  font: 13px "MONR";
+  color: #7D7978;
+}
+section.deadlines .container .items .item .item-main span {
+  display: block;
+  position: relative;
+  margin-top: 5px;
+  font: 16px "MONR";
+  color: #41464F;
+}
+section.deadlines .container .items .item .item-main.arrow span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 7px;
+  right: 6px;
+  width: 16px;
+  height: 8px;
+  background-image: url("../../img/shared/select-arrow.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+section.deadlines .container .items .item .item-ext {
+  height: 0;
+  overflow: hidden;
+  border-top: none;
+  padding: 0;
+}
+section.deadlines .container .items .item .item-ext span {
+  display: block;
+  padding: 3px 0 4px 0;
+  font: 16px "MONR";
+}
+section.deadlines .container .items .item .item-ext a {
+  display: block;
+  height: 32px;
+  padding: 6px 20px 0;
+  font: 15px "MONR";
+  text-decoration: none;
+}
+section.deadlines .container .items .item .item-ext a:hover {
+  background-color: #f6f6f6;
+  text-decoration: none;
+}
+section.deadlines .container .items .item.dd:hover {
+  -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.05);
+  z-index: 2;
+}
+section.deadlines .container .items .item.dd:hover .item-ext {
+  height: auto;
+  overflow: visible;
+  padding: 5px 0 6px;
+}

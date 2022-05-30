@@ -1,0 +1,238 @@
+.step-1 {
+  padding: 65px 0 0;
+}
+.step-1 .container .title {
+  margin-bottom: 20px;
+  font: 32px "MONM";
+}
+.step-1 .container .desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 34px;
+}
+.step-1 .container .desc .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.step-1 .container .desc .left .txt {
+  font: 16px "MONR";
+  color: #7D7978;
+}
+.step-1 .container .desc .left .btns .btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 20px;
+  height: 40px;
+  padding: 0 31px;
+  font: 13px "MONR";
+  cursor: pointer;
+}
+.step-1 .container .desc .left .btns input {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+.step-1 .container .desc .left .btns .add {
+  margin-right: 16px;
+  padding-left: 61px;
+  border: 1.5px solid #3A3029;
+  background-image: url("/app/img/step-1/upload-bold.svg");
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: left 31px center;
+}
+.step-1 .container .desc .left .btns .send {
+  background-color: #FF7300;
+  color: #fff;
+}
+.step-1 .container .desc .left .btns .send.disabled {
+  background-color: #D8D6D4;
+  cursor: default;
+}
+.step-1 .container .desc .skip {
+  padding-right: 27px;
+  font: 16px "MONR";
+  color: #41464F;
+  text-decoration: none;
+  background: url("../img/shared/skip-arrow.svg");
+  background-position: right 6px center;
+  background-repeat: no-repeat;
+  background-size: 8px 14px;
+  cursor: pointer;
+}
+.step-1 .container .progress {
+  position: relative;
+  margin: 10px 0 20px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #ECE5E3;
+}
+.step-1 .container .progress .bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #FF7300;
+}
+.step-1 .container .upload-files {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 30px;
+  -webkit-clip-path: inset(0px round 16px 16px 16px 16px);
+  clip-path: inset(0px round 16px 16px 16px 16px);
+  height: 145px;
+  padding: 0 40px;
+  background-color: #FAF7F6;
+}
+.step-1 .container .upload-files::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 5px dashed #D3CAC3;
+  border-radius: 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: -1;
+}
+.step-1 .container .upload-files.on-drag-enter::before {
+  border: 5px dashed #9a887a;
+}
+.step-1 .container .upload-files input {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+.step-1 .container .upload-files .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-height: 65px;
+  padding-left: 88px;
+  background-image: url("../../app/img/step-1/upload.svg");
+  background-size: 65px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  font: 16px "MONM";
+}
+.step-1 .container .upload-files .left .info {
+  margin-bottom: 10px;
+}
+.step-1 .container .upload-files .left .info label {
+  margin-right: 2px;
+  font: 16px "MONM";
+  color: #ff8d30;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.step-1 .container .upload-files .left .errors {
+  font: 12px "MONR";
+  color: #f00;
+}
+.step-1 .container .upload-files .right {
+  padding-left: 40px;
+  white-space: nowrap;
+  font: 13px "MONR";
+  letter-spacing: 0.007em;
+  color: #7D7978;
+}
+.step-1 .container .errors-2 {
+  margin: -4px 0 31px;
+  font: 12px "MONR";
+  color: #f00;
+}
+.step-1 .container .list-files .file-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  height: 64px;
+  padding: 0 0 0 29px;
+  background-color: #FAF7F6;
+}
+.step-1 .container .list-files .file-item .file-name {
+  -webkit-box-flex: 540px;
+  -ms-flex: 540px 0 0px;
+  flex: 540px 0 0;
+  min-height: 24px;
+  padding: 3px 20px 0 41px;
+  font: 13px "MONR";
+  background-image: url("../../app/img/step-1/file.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 22px 24px;
+}
+.step-1 .container .list-files .file-item .file-size {
+  font: 13px "MONR";
+  color: #7D7978;
+}
+.step-1 .container .list-files .file-item .file-remove {
+  position: absolute;
+  top: 50%;
+  right: 26px;
+  width: 24px;
+  height: 24px;
+  background-image: url("../../app/img/step-1/trash.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.step-1 .container .no-photo {
+  margin-top: 160px;
+  padding-top: 73px;
+  background-image: url("/app/img/step-1/no-photo.svg");
+  background-size: 54px 46px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  font: 16px "MONR";
+  color: #7D7978;
+  text-align: center;
+}
+
+#tooltip-remove-file {
+  font: 13px "MONR";
+}

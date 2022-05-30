@@ -1,0 +1,135 @@
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none;
+}
+
+* {
+  -webkit-appearance: none;
+  text-decoration-skip-ink: none;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0;
+  outline-width: 0px !important;
+  outline-color: none !important;
+  color: #3A3029;
+  box-sizing: border-box !important;
+  text-decoration-skip-ink: none;
+  font-family: 'Montserrat', sans-serif;
+
+  &:focus {
+    outline-style: none;
+  }
+
+  &:disabled {
+    background: rgba(204, 204, 204, 0.1);
+  }
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #3b3b3b;
+  background: #fff;
+  min-width: 1280px;
+}
+
+body.fixed {
+  position: fixed;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.wrapper-blurred {
+  filter: blur(10px);
+}
+
+.content {
+  min-height: calc(100vh - 175px);
+}
+
+section,
+header,
+footer {
+  width: 100%;
+
+  .container {
+    width: 1240px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+a {
+  cursor: pointer;
+}
+
+// Montserrat
+// ------------------------------------------------------------------------------
+
+@font-face {
+  font-family: 'MONM';
+  src: url('../../fonts/Montserrat/Montserrat-Medium.woff2') format('woff2'),
+    url('../../fonts/Montserrat/Montserrat-Medium.woff') format('woff'),
+    url('../../fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MONB';
+  src: url('../../fonts/Montserrat/Montserrat-Bold.woff2') format('woff2'),
+    url('../../fonts/Montserrat/Montserrat-Bold.woff') format('woff'),
+    url('../../fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MONR';
+  src: url('../../fonts/Montserrat/Montserrat-Regular.woff2') format('woff2'),
+    url('../../fonts/Montserrat/Montserrat-Regular.woff') format('woff'),
+    url('../../fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MONSB';
+  src: url('../../fonts/Montserrat/Montserrat-SemiBold.woff2') format('woff2'),
+    url('../../fonts/Montserrat/Montserrat-SemiBold.woff') format('woff'),
+    url('../../fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+
+

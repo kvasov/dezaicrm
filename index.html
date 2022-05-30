@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="app/css/shared/global.css" />
+    <link rel="stylesheet" href="app/css/shared/header.css" />
+    <link rel="stylesheet" href="app/css/shared/timeline.css" />
+    <link rel="stylesheet" href="app/css/shared/footer.css" />
+    <link rel="stylesheet" href="app/css/step-1.css" />
+    <link rel="stylesheet" href="app/css/shared/tmp.css" />
+    <link
+      rel="stylesheet"
+      href="app/js/tooltipster/tooltipster-sideTip-shadow.min.css"
+    />
+    <link rel="stylesheet" href="app/js/tooltipster/tooltipster.bundle.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <!-- <script src="app/js/app.js"></script> -->
+    <script src="app/js/main.js"></script>
+    <script src="app/js/step1.js"></script>
+    <script src="app/js/tooltipster/tooltipster.bundle.js"></script>
+  </head>
+  <body ng-controller="MainCtrl" nv-file-drop="" uploader="uploader">
+    <header>
+      <div class="container">
+        <div class="left">
+          <a href="/" class="logo"></a>
+          <a class="statement was-updated" href="/client/statement"
+            >Шопинг-лист (ведомость)</a
+          >
+        </div>
+        <div class="right">
+          <div class="users">
+            <div class="user">
+              <div class="user-main">
+                <div class="avatar">
+                  <img src="https://loremflickr.com/45/45" />
+                </div>
+                <div class="name">Шестопалова Ирина ф<span>Дизайнер</span></div>
+              </div>
+              <div class="user-ext">
+                <span>i.shestopalova@rerooms.ru</span>
+                <span>+7 (903) 107-9091</span>
+              </div>
+            </div>
+            <div class="user">
+              <div class="user-main">
+                <div class="avatar">
+                  <img src="https://loremflickr.com/45/45" />
+                </div>
+                <div class="name">
+                  Иван Иванов
+                  <span>Вы</span>
+                </div>
+              </div>
+              <div class="user-ext user-me-ext">
+                <a class="profile-btn" href="/">Настройки профиля</a>
+                <a class="profile-btn" href="/" target="_blank"
+                  >Договор оферты</a
+                >
+                <a class="profile-btn" href="/">История</a>
+                <a class="profile-btn was-updated" href="/"
+                  >Шопинг-лист (ведомость)</a
+                >
+                <a class="profile-btn" href="/">Выход</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="content">
+      <section class="timeline">
+        <div class="container">
+          <div class="inner">
+            <ul class="ul-timeline" id="timeline">
+              <li class="li active">
+                <div class="stage">
+                  <a href="/">Этап 1</a>
+                </div>
+                <div class="title">
+                  <a href="/">Бриф 1</a>
+                </div>
+              </li>
+              <li class="li">
+                <div class="stage">
+                  <a href="/">Этап 2</a>
+                </div>
+                <div class="title">
+                  <a href="/">Бюджет</a>
+                </div>
+              </li>
+              <li class="li">
+                <div class="stage">
+                  <a href="/">Этап 3</a>
+                </div>
+                <div class="title">
+                  <a href="/">Бриф 2</a>
+                </div>
+              </li>
+              <li class="li">
+                <div class="stage">
+                  <a href="/">Этап 4</a>
+                </div>
+                <div class="title">
+                  <a href="/">Концепция</a>
+                </div>
+              </li>
+              <li class="li">
+                <div class="stage">
+                  <a href="/">Этап 5</a>
+                </div>
+                <div class="title">
+                  <a href="/">Финальный дизайн-проект</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="deadlines">
+        <div class="container">
+          <div class="left">
+            <div class="items">
+              <div class="item">
+                <div class="item-main">
+                  Дата окончания проекта:<span>15 июня 2022 г.</span>
+                </div>
+              </div>
+              <div class="item dd">
+                <div class="item-main arrow">
+                  Object:<span>3-room flat</span>
+                </div>
+                <div class="item-ext">
+                  <a href="/">Объект №23423</a>
+                  <a href="/">Объект №23423</a>
+                  <a href="/">Объект №23423</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <div class="items">
+              <div class="item">
+                <div class="item-main">
+                  Your shopping assistant for discounted goods<span
+                    >+7 (499) 288-21-24</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="step-1">
+        <div class="container">
+          <div class="title" ng-if="!showBtns">
+            Please upload drawings or floor plans
+          </div>
+          <div class="desc">
+            <div class="left">
+              <div class="txt" ng-if="!showBtns">
+                Once the drawings have been uploaded, the designer will contact
+                you with further details.
+              </div>
+
+              <div class="btns" ng-if="showBtns">
+                <input
+                  id="input-file-2"
+                  type="file"
+                  ng-file-model="files"
+                  filetype="file1"
+                  errors="file1errors"
+                  multiple
+                />
+                <label class="btn add" for="input-file-2">Add files</label>
+                <a class="btn send" ng-click="upload()" ng-class="canSendCls()"
+                  >Send to a designer</a
+                >
+              </div>
+            </div>
+            <div class="skip">Skip this step</div>
+          </div>
+
+          <div class="progress" ng-show="showProgress">
+            <div class="bar" ng-style="{'width' : progressBar + '%'}"></div>
+          </div>
+
+          <div
+            dropzone
+            filetype="file1"
+            errors="file1errors"
+            class="upload-files"
+            ng-if="!showBtns"
+            ng-class="divClass"
+          >
+            <input
+              id="input-file"
+              type="file"
+              ng-file-model="files"
+              filetype="file1"
+              errors="file1errors"
+              multiple
+            />
+            <div class="left">
+              <div class="info">
+                <label for="input-file">Select</label> and upload files
+              </div>
+              <div class="errors" ng-if="files.file1errors.length > 0">
+                {{errorsStr()}} file size too large
+              </div>
+            </div>
+            <div class="right">The maximum file size is 10 mb.</div>
+          </div>
+
+          <div
+            class="errors-2"
+            ng-if="files.file1errors.length > 0 && showBtns"
+          >
+            {{errorsStr()}} file size too large
+          </div>
+
+          <div class="list-files">
+            <div class="file-item" ng-repeat="file in files.file1">
+              <div class="file-name">{{file.name}}</div>
+              <div class="file-size">{{file.size | fileSize}}</div>
+              <div
+                class="file-remove tooltipster"
+                ng-show="file != null"
+                ng-click="removeFile('file1', $index)"
+              ></div>
+            </div>
+          </div>
+
+          <div class="no-photo" ng-if="files.file1.length == 0 && showBtns">
+            Нет загруженных файлов
+          </div>
+
+          <!-- <div
+            class="tooltipster"
+            id="q"
+            data-tooltip-content="<div class='tooltip-remove-file'>Delete file</div>"
+          >
+            del
+          </div>
+
+          <div class="tooltip_templates">
+            <div id="tooltip-remove-file">Delete file</div>
+          </div> -->
+
+          <br />
+          <br />
+
+          <!-- <input
+            type="file"
+            ng-file-model="files2"
+            filetype="file2"
+            errors="file2errors"
+            multiple
+          />
+
+          <div ng-repeat="file in files.file2">
+            {{file.name}}
+
+            <img
+              ng-src="{{file.url}}"
+              ng-show="file != null"
+              alt=""
+              style="height: 20px; width: 20px"
+            />
+            <div>{{file.name}}</div>
+            <div ng-show="file != null" ng-click="removeFile('file2', $index)">
+              delete
+            </div>
+          </div> -->
+        </div>
+      </section>
+
+      <section class="cookies-dezai">
+        <div class="container">
+          <div class="txt">
+            By continuing to use your personal account, you agree to the
+            personal data and cookie policy.
+          </div>
+          <div class="accept">Accept</div>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="left">
+          <a href="/" class="logo"></a>
+          <div class="copy">©2018, Rerooms</div>
+        </div>
+
+        <div class="middle">
+          Got questions?
+          <a href="#">Report a problem</a>
+        </div>
+
+        <div class="right">
+          <div class="soc-links">
+            <a href="https://facebook.com/thedezai/" class="fb"></a>
+            <a href="https://instagram.com/the.dezai" class="in"></a>
+          </div>
+          <a href="tel:01157380007" class="phone">01157380007</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
