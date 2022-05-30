@@ -1,0 +1,42 @@
+.step-while-wait {
+  padding-top: 65px;
+
+  .container {
+    width: 1200px;
+    border-radius: 8px;
+    height: 280px;
+    padding: 40px 0 0 40px;
+    background-color: #FAF7F6;
+    background-image: url('/app/img/step-2/bg.png');
+    background-size: 572px 280px;
+    background-repeat: no-repeat;
+    background-position: right top;
+    overflow: hidden;
+
+
+    .title {
+      margin-bottom: 18px;
+      font: 32px 'MONM';
+    }
+
+    .subtitle {
+      width: 450px;
+      margin-bottom: 31px;
+      font: 16px/24px 'MONR';
+    }
+
+    .start-brief {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      padding: 0 34px;
+      height: 40px;
+      background-color: #FF7300;
+      font: 12px 'MONM';
+      text-decoration: none;
+      letter-spacing: .05em;
+      color: #fff;
+    }
+  }
+}
