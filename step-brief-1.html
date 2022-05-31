@@ -1,0 +1,79 @@
+<section class="step-brief-1" ng-controller="BriefCtrl">
+  <div class="container">
+    <div class="step-head step-head-hor">
+      <div class="left">
+        <div class="ico"></div>
+        <div class="about">
+          <div class="title">Fill the brief below</div>
+          <div class="subtitle">Personal information</div>
+        </div>
+      </div>
+    </div>
+    <div class="question">
+      {{questions[0].name}}
+
+      <div
+        class="room"
+        ng-repeat="room in questions[0].rooms"
+        ng-init="parentIndex = $index"
+      >
+        $index = {{$index}}
+        <input
+          type="hidden"
+          ng-model="questions[0].rooms[$index].id"
+          value="{{$index}}"
+        />
+        <br />
+        <select
+          ng-model="questions[0].rooms[$index].roomType"
+          ng-options="room.id as room.name for room in rooms"
+        ></select>
+        <div ng-repeat="furniture in furnitures">
+          $index = {{$index}} _____ parentIndex = {{parentIndex}}
+          <input
+            type="checkbox"
+            id="furnitures[$index]"
+            type="checkbox"
+            ng-model="questions[0].rooms[parentIndex].furnitures[$index]"
+          />
+          {{questions[0].rooms[$parentIndex].furnitures[$index]}}
+        </div>
+        <button ng-click="removeRoom(room.id)">del</button>
+        <hr />
+      </div>
+
+      <button ng-click="addRoom()">+</button>
+      <button ng-click="send()">SEND</button>
+    </div>
+
+    <div class="question">
+      {{questions[1].name}}
+
+      <button ng-click="setChildren(1)">Yes</button>
+      <button ng-click="setChildren(0)">No</button>
+
+      <div class="childrens" ng-if="questions[1].val == 1">
+        <div ng-repeat="children in questions[1].childrens track by $index">
+          <input
+            id="children_{{$index}}_radio_sex_m"
+            type="radio"
+            ng-model="questions[1].childrens[$index].sex"
+            value="m"
+          />
+          <label for="children_{{$index}}_radio_sex_m">Boy</label>
+          <input
+            id="children_{{$index}}_radio_sex_f"
+            type="radio"
+            ng-model="questions[1].childrens[$index].sex"
+            value="f"
+          />
+          <label for="children_{{$index}}_radio_sex_f">Girl</label>
+          <input type="text" ng-model="questions[1].childrens[$index].y" />
+          <button ng-click="removeChildren(children.id)">-</button>
+        </div>
+        <br />
+        <button ng-click="addChildren()">+</button>
+      </div>
+    </div>
+  </div>
+</section>

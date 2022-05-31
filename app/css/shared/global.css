@@ -8,7 +8,6 @@
 }
 
 * {
-  -webkit-appearance: none;
   -webkit-text-decoration-skip-ink: none;
   text-decoration-skip-ink: none;
   margin: 0;
