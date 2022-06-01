@@ -40,12 +40,192 @@ section.step-brief-1 .container .step-head-hor .left .about .subtitle {
 section.step-brief-1 .container .question {
   margin-bottom: 32px;
   border-radius: 8px;
-  padding: 30px 32px 32px;
+  padding: 30px 32px;
   background-color: #FAF7F6;
 }
 section.step-brief-1 .container .question .question-name {
   margin-bottom: 28px;
   font: 22px "MONM";
+}
+section.step-brief-1 .container .question .question-subname {
+  margin: -21px 0 31px;
+  font: 13px "MONR";
+  color: #7D7978;
+}
+section.step-brief-1 .container .question input[type=text] {
+  border: 1px solid #D3CAC3;
+  border-radius: 8px;
+  height: 49px;
+  padding: 2px 0 0 14px;
+  font: 16px "MONM";
+}
+section.step-brief-1 .container .question input[type=text]:focus {
+  border: 1px solid #FF7300;
+}
+section.step-brief-1 .container .question .btns-yes-no button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: 1px solid #D3CAC3;
+  border-radius: 8px;
+  width: 95px;
+  height: 49px;
+  font: 16px "MONM";
+  background-color: #fff;
+  cursor: pointer;
+}
+section.step-brief-1 .container .question .btns-yes-no button.active {
+  border: 2px solid #FF7300;
+  background-color: #FFE6D1;
+}
+section.step-brief-1 .container .question .btns-yes-no button:first-child {
+  margin-right: 10px;
+}
+section.step-brief-1 .container .question .checkboxes-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-flex: calc((100% - 20px) / 3);
+  -ms-flex: calc((100% - 20px) / 3) 0 0px;
+  flex: calc((100% - 20px) / 3) 0 0;
+  margin-bottom: 32px;
+}
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item:not(:nth-child(3n+3)) {
+  margin-right: 10px;
+}
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item input[type=checkbox] {
+  display: none;
+}
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid #D3CAC3;
+  border-radius: 5px;
+  padding: 9px 9px 0 9px;
+  width: 100%;
+  height: 180px;
+  background-color: #fff;
+  cursor: pointer;
+}
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item label img {
+  display: block;
+  margin-bottom: 16px;
+  width: 100%;
+  height: 122px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item label .name {
+  position: relative;
+  padding-left: 31px;
+  font: 16px/18px "MONM";
+}
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item label .name::after {
+  content: "";
+  display: block;
+  position: absolute;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  top: 0;
+  left: 6px;
+  border: 1px solid #D3CAC3;
+  border-radius: 4px;
+  width: 16px;
+  height: 16px;
+}
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item label.designer {
+  padding-top: 99px;
+  background-image: url("/app/img/step-brief-1/designer_consult.svg");
+  background-size: 41px 40px;
+  background-repeat: no-repeat;
+  background-position: center top 35px;
+}
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item label.designer .name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+}
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item label.designer .name::after {
+  top: 48px;
+  left: calc(50% - 8px);
+}
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item label.disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item input[type=checkbox]:checked ~ label::after,
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item input[type=checkbox][checked=checked] ~ label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 2px solid #FF7300;
+  border-radius: 5px;
+}
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item input[type=checkbox]:checked ~ label .name::after,
+section.step-brief-1 .container .question .checkboxes-img .checkbox-item input[type=checkbox][checked=checked] ~ label .name::after {
+  border: 1px solid #FF7300;
+  background-color: #FF7300;
+  background-image: url("/app/img/step-brief-1/check.svg");
+  background-size: 8px 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+section.step-brief-1 .container .question .add-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 22px;
+  padding-left: 29px;
+  font: 16px "MONM";
+  background-image: url("/app/img/step-brief-1/plus.svg");
+  background-size: 22px;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+section.step-brief-1 .container .question textarea {
+  border: 1px solid #D3CAC3;
+  border-radius: 5px;
+  padding: 12px 16px;
+  width: 100%;
+  height: 80px;
+  font: 16px/24px "MONR";
 }
 section.step-brief-1 .container .question-furniture .room {
   margin-bottom: 20px;
@@ -54,6 +234,9 @@ section.step-brief-1 .container .question-furniture .room .select-room span.sele
   display: block;
   margin-bottom: 10px;
   font: 16px "MONM";
+}
+section.step-brief-1 .container .question-furniture .room .select-room select {
+  height: 49px;
 }
 section.step-brief-1 .container .question-furniture .room .select-room .select2-container {
   margin-bottom: 32px;
@@ -135,27 +318,84 @@ section.step-brief-1 .container .question-furniture .room .furniture-checkboxes 
   border: 2px solid #FF7300;
   background: #FFE6D1;
 }
-section.step-brief-1 .container .question-furniture .add-room {
+section.step-brief-1 .container .question-furniture textarea {
+  margin-top: 31px;
+}
+section.step-brief-1 .container .question-number-people input[type=text] {
+  width: 129px;
+}
+section.step-brief-1 .container .question-children .childrens {
+  margin-top: 24px;
+}
+section.step-brief-1 .container .question-children .childrens .children {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 22px;
-  padding-left: 29px;
-  font: 16px "MONM";
-  background-image: url("/app/img/step-brief-1/plus.svg");
-  background-size: 22px;
-  background-repeat: no-repeat;
-  background-position: left center;
+  margin-bottom: 23px;
 }
-section.step-brief-1 .container .question-furniture textarea {
-  margin-top: 31px;
+section.step-brief-1 .container .question-children .childrens .children .children-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 16px;
   border: 1px solid #D3CAC3;
+  padding: 0 31px;
+  background-color: #fff;
+  border-radius: 4px;
+  height: 60px;
+}
+section.step-brief-1 .container .question-children .childrens .children .children-inner input[type=radio] {
+  display: none;
+}
+section.step-brief-1 .container .question-children .childrens .children .children-inner label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  margin-right: 32px;
+  padding-left: 23px;
+  font: 16px "MONM";
+  cursor: pointer;
+}
+section.step-brief-1 .container .question-children .childrens .children .children-inner label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 0;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #D8D6D4;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+section.step-brief-1 .container .question-children .childrens .children .children-inner input[type=radio][checked=checked] + label::after,
+section.step-brief-1 .container .question-children .childrens .children .children-inner input[type=radio]:checked + label::after {
+  border: 4px solid #FF7300;
+}
+section.step-brief-1 .container .question-children .childrens .children .children-inner input[type=text] {
+  margin-right: 9px;
   border-radius: 5px;
-  padding: 12px 16px;
-  width: 100%;
-  height: 80px;
-  font: 16px/24px "MONR";
+  width: 100px;
+  height: 40px;
+}
+section.step-brief-1 .container .question-children .childrens .children .remove {
+  -webkit-box-flex: 20px;
+  -ms-flex: 20px 0 0px;
+  flex: 20px 0 0;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  background-image: url("/app/img/step-brief-1/remove.svg");
+  cursor: pointer;
 }

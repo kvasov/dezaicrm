@@ -36,6 +36,63 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
       name: 'Кресло',
     },
   ];
+
+  $scope.styles = [
+    {
+      id: 0,
+      name: 'Consult with a designer',
+      val: 0,
+    },
+    {
+      id: 1,
+      name: 'Classic',
+      img: 'classic.jpg',
+      val: 0,
+    },
+    {
+      id: 2,
+      name: 'Modern classic',
+      img: 'modern_classic.jpg',
+      val: 0,
+    },
+    {
+      id: 3,
+      name: 'Art deco',
+      img: 'art_deco.jpg',
+      val: 0,
+    },
+    {
+      id: 4,
+      name: 'Minimalist',
+      img: 'minimalist.jpg',
+      val: 0,
+    },
+    {
+      id: 5,
+      name: 'Hi-Tech',
+      img: 'hi_tech.jpg',
+      val: 0,
+    },
+    {
+      id: 6,
+      name: 'modern',
+      img: 'modern.jpg',
+      val: 0,
+    },
+    {
+      id: 7,
+      name: 'loft',
+      img: 'loft.jpg',
+      val: 0,
+    },
+    {
+      id: 8,
+      name: 'Contemporary style',
+      img: 'contemporary.jpg',
+      val: 0,
+    },
+  ];
+
   $scope.questions = [
     {
       id: 0,
@@ -47,9 +104,15 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
           furnitures: [],
         },
       ],
+      comment: '',
     },
     {
-      id: 3,
+      id: 1,
+      name: 'How many people live in your property?',
+      number_people: 3,
+    },
+    {
+      id: 2,
       name: 'Children',
       val: 1,
       childrens: [
@@ -59,6 +122,23 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
           y: 12,
         },
       ],
+    },
+    {
+      id: 3,
+      name: 'Style preference quiz',
+      subname: 'Please choose at least 3 different styles',
+      styles: {
+        0: false,
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+        8: false,
+      },
+      comment: '',
     },
   ];
 
@@ -94,24 +174,29 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
         })
       );
     }
+
+    $scope.select2Init();
   };
 
   $scope.setChildren = function (value) {
-    $scope.questions[1].val = value;
-    if (value == 1) {
+    $scope.questions[2].val = value;
+    if (value == 1 && $scope.questions[2].childrens.length == 0) {
       $scope.addChildren();
+    }
+    if (value == 0) {
+      $scope.questions[2].childrens = [];
     }
   };
 
   $scope.addChildren = function () {
-    if ($scope.questions[1].childrens.length > 0) {
+    if ($scope.questions[2].childrens.length > 0) {
       id_tmp =
-        $scope.questions[1].childrens[$scope.questions[1].childrens.length - 1]
+        $scope.questions[2].childrens[$scope.questions[2].childrens.length - 1]
           .id + 1;
     } else {
       id_tmp = 0;
     }
-    $scope.questions[1].childrens.push({
+    $scope.questions[2].childrens.push({
       id: id_tmp,
       sex: 'm',
       y: 12,
@@ -119,20 +204,26 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
   };
 
   $scope.removeChildren = function (i) {
-    if ($scope.questions[1].childrens.length == 1) {
+    if ($scope.questions[2].childrens.length == 1) {
       $scope.setChildren(0);
     }
-    console.log('i = ', i);
-    console.log(
-      $filter('filter')($scope.questions[1].childrens, function (value, index) {
+    $scope.questions[2].childrens = angular.copy(
+      $filter('filter')($scope.questions[2].childrens, function (value, index) {
         return value.id !== i;
       })
     );
-    $scope.questions[1].childrens = angular.copy(
-      $filter('filter')($scope.questions[1].childrens, function (value, index) {
-        return value.id !== i;
-      })
-    );
+  };
+
+  $scope.disabledWhen3Items = function (target) {
+    countCheckedItems = 0;
+    for (key in target) {
+      if (target[key]) {
+        countCheckedItems++;
+      }
+    }
+    if (countCheckedItems > 2) {
+      return true;
+    }
   };
 
   $scope.select2Init = function () {
@@ -140,7 +231,7 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
       $('.select-room select').select2({
         minimumResultsForSearch: -1,
       });
-    }, 100);
+    }, 10);
   };
 });
 

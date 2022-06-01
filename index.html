@@ -210,12 +210,14 @@
                 <div class="furniture-item" ng-repeat="furniture in furnitures">
                   <input
                     type="checkbox"
-                    id="furnitures_{{$index}}"
+                    id="furnitures_{{parentIndex}}_{{$index}}"
                     type="checkbox"
                     ng-model="questions[0].rooms[parentIndex].furnitures[$index]"
                   />
-                  <label for="furnitures_{{$index}}">{{furniture.name}}</label>
-                  {{questions[0].rooms[$parentIndex].furnitures[$index]}}
+                  <label for="furnitures_{{parentIndex}}_{{$index}}"
+                    >{{furniture.name}}</label
+                  >
+                  <!-- {{questions[0].rooms[$parentIndex].furnitures[$index]}} -->
                 </div>
               </div>
 
@@ -226,45 +228,115 @@
                 del
               </button>
             </div>
+            <a class="add-item" ng-click="addRoom()">Add</a>
 
-            <a class="add-room" ng-click="addRoom()">Add</a>
-
-            <textarea placeholder="Comments (optional)"></textarea>
+            <textarea
+              placeholder="Comments (optional)"
+              ng-model="questions[0].comment"
+            ></textarea>
           </div>
 
-          <div class="question">
-            {{questions[1].name}}
+          <div class="question question-number-people">
+            <div class="question-name">
+              {{questions[1].id + 1}}. {{questions[1].name}}
+            </div>
+            <input
+              type="text"
+              class="number-people"
+              ng-model="questions[1].number_people"
+            />
+          </div>
 
-            <button ng-click="setChildren(1)">Yes</button>
-            <button ng-click="setChildren(0)">No</button>
+          <div class="question question-children">
+            <div class="question-name">
+              {{questions[2].id + 1}}. {{questions[2].name}}
+            </div>
 
-            <div class="childrens" ng-if="questions[1].val == 1">
+            <div class="btns-yes-no">
+              <button
+                ng-class="questions[2].val == 1 && 'active'"
+                ng-click="setChildren(1)"
+              >
+                Yes
+              </button>
+              <button
+                ng-class="questions[2].val == 0 && 'active'"
+                ng-click="setChildren(0)"
+              >
+                No
+              </button>
+            </div>
+
+            <div class="childrens" ng-if="questions[2].val == 1">
               <div
-                ng-repeat="children in questions[1].childrens track by $index"
+                class="children"
+                ng-repeat="children in questions[2].childrens track by $index"
+              >
+                <div class="children-inner">
+                  <input
+                    id="children_{{$index}}_radio_sex_m"
+                    type="radio"
+                    ng-model="questions[2].childrens[$index].sex"
+                    value="m"
+                  />
+                  <label for="children_{{$index}}_radio_sex_m">Boy</label>
+                  <input
+                    id="children_{{$index}}_radio_sex_f"
+                    type="radio"
+                    ng-model="questions[2].childrens[$index].sex"
+                    value="f"
+                  />
+                  <label for="children_{{$index}}_radio_sex_f">Girl</label>
+                  <input
+                    type="text"
+                    ng-model="questions[2].childrens[$index].y"
+                  />
+                  y
+                </div>
+
+                <button
+                  class="remove"
+                  ng-click="removeChildren(children.id)"
+                ></button>
+              </div>
+
+              <a class="add-item" ng-click="addChildren()">Add</a>
+            </div>
+          </div>
+
+          <div class="question question-styles">
+            <div class="question-name">
+              {{questions[3].id + 1}}. {{questions[3].name}}
+            </div>
+            <div class="question-subname">{{questions[3].subname}}</div>
+
+            <div class="checkboxes-img">
+              <div
+                class="checkbox-item"
+                ng-repeat="style in styles track by $index"
               >
                 <input
-                  id="children_{{$index}}_radio_sex_m"
-                  type="radio"
-                  ng-model="questions[1].childrens[$index].sex"
-                  value="m"
+                  id="checkbox-style-{{$index}}"
+                  type="checkbox"
+                  ng-model="questions[3].styles[$index]"
+                  ng-disabled="disabledWhen3Items(questions[3].styles) && !questions[3].styles[$index]"
                 />
-                <label for="children_{{$index}}_radio_sex_m">Boy</label>
-                <input
-                  id="children_{{$index}}_radio_sex_f"
-                  type="radio"
-                  ng-model="questions[1].childrens[$index].sex"
-                  value="f"
-                />
-                <label for="children_{{$index}}_radio_sex_f">Girl</label>
-                <input
-                  type="text"
-                  ng-model="questions[1].childrens[$index].y"
-                />
-                <button ng-click="removeChildren(children.id)">-</button>
+                <label
+                  ng-class="{'designer': ($index == 0), 'disabled': (disabledWhen3Items(questions[3].styles) && !questions[3].styles[$index])}"
+                  for="checkbox-style-{{$index}}"
+                >
+                  <img
+                    ng-if="$index > 0"
+                    ng-src="/app/img/step-brief-1/styles/{{styles[$index].img}}"
+                  />
+                  <div class="name">{{styles[$index].name}}</div>
+                </label>
               </div>
-              <br />
-              <button ng-click="addChildren()">+</button>
             </div>
+            <textarea
+              placeholder="Comments (optional)"
+              ng-model="questions[3].comment"
+            ></textarea>
           </div>
 
           <button ng-click="send()">SEND</button>
