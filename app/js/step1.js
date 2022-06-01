@@ -80,7 +80,9 @@ app.directive('ngFileModel', function () {
             item.size < 1024 * 1024 * 5 &&
             /\/(png|jpeg|jpg|gif|pdf)$/.test(item.type)
           ) {
-            scope.showBtnsDo();
+            if (typeof scope.showBtnsDo == 'function') {
+              scope.showBtnsDo();
+            }
             scope.files[attrs.filetype].push(value);
           } else {
             scope.files[attrs.errors].push(value);

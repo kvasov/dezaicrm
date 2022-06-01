@@ -8,6 +8,10 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
     });
   };
 
+  $scope.files = {
+    files_styles: [],
+  };
+
   $scope.rooms = [
     {
       id: 0,
@@ -75,13 +79,13 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
     },
     {
       id: 6,
-      name: 'modern',
+      name: 'Modern',
       img: 'modern.jpg',
       val: 0,
     },
     {
       id: 7,
-      name: 'loft',
+      name: 'Loft',
       img: 'loft.jpg',
       val: 0,
     },
@@ -232,6 +236,10 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
         minimumResultsForSearch: -1,
       });
     }, 10);
+  };
+
+  $scope.removeFile = function (fileType, index) {
+    $scope.files[fileType].splice(index, 1);
   };
 });
 

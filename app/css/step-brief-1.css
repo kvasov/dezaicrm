@@ -227,6 +227,83 @@ section.step-brief-1 .container .question textarea {
   height: 80px;
   font: 16px/24px "MONR";
 }
+section.step-brief-1 .container .question .add-files {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 25px;
+}
+section.step-brief-1 .container .question .add-files .input-field {
+  margin-right: 31px;
+}
+section.step-brief-1 .container .question .add-files .input-field input {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+section.step-brief-1 .container .question .add-files .input-field .add {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 16px;
+  padding-left: 61px;
+  border: 1.5px solid #3A3029;
+  border-radius: 20px;
+  height: 40px;
+  padding: 0 36px 0 61px;
+  background-image: url("/app/img/step-1/upload-bold.svg");
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: left 31px center;
+  font: 13px "MONR";
+  white-space: nowrap;
+  cursor: pointer;
+}
+section.step-brief-1 .container .question .add-files .samples {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+section.step-brief-1 .container .question .add-files .samples .sample {
+  position: relative;
+  -webkit-box-flex: 90px;
+  -ms-flex: 90px 0 0px;
+  flex: 90px 0 0;
+  height: 90px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
+section.step-brief-1 .container .question .add-files .samples .sample img {
+  display: block;
+  border-radius: 7px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+section.step-brief-1 .container .question .add-files .samples .sample .del {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  background-image: url("/app/img/step-brief-1/remove.svg");
+  cursor: pointer;
+}
 section.step-brief-1 .container .question-furniture .room {
   margin-bottom: 20px;
 }

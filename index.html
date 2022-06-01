@@ -337,6 +337,32 @@
               placeholder="Comments (optional)"
               ng-model="questions[3].comment"
             ></textarea>
+
+            <div class="add-files">
+              <div class="input-field">
+                <input
+                  id="input-file-styles"
+                  type="file"
+                  ng-file-model="files_styles"
+                  filetype="files_styles"
+                  errors="files_styles_errors"
+                  multiple
+                />
+                <label class="add" for="input-file-styles"
+                  >Upload samples
+                </label>
+              </div>
+              <div class="samples">
+                <div class="sample" ng-repeat="file in files.files_styles">
+                  <img ng-src="{{file.url}}" ng-show="file != null" />
+                  <div
+                    class="del"
+                    ng-show="file != null"
+                    ng-click="removeFile('files_styles', $index)"
+                  ></div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <button ng-click="send()">SEND</button>
