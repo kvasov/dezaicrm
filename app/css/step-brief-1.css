@@ -87,6 +87,85 @@ section.step-brief-1 .container .question .btns-yes-no button.active {
 section.step-brief-1 .container .question .btns-yes-no button:first-child {
   margin-right: 10px;
 }
+section.step-brief-1 .container .question .simple-checkboxes,
+section.step-brief-1 .container .question .simple-radios {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+section.step-brief-1 .container .question .simple-checkboxes .checkbox-item,
+section.step-brief-1 .container .question .simple-checkboxes .radio-item,
+section.step-brief-1 .container .question .simple-radios .checkbox-item,
+section.step-brief-1 .container .question .simple-radios .radio-item {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-flex: calc((100% - 20px) / 3);
+  -ms-flex: calc((100% - 20px) / 3) 0 0px;
+  flex: calc((100% - 20px) / 3) 0 0;
+  margin-bottom: 10px;
+}
+section.step-brief-1 .container .question .simple-checkboxes .checkbox-item:not(:nth-child(3n+3)),
+section.step-brief-1 .container .question .simple-checkboxes .radio-item:not(:nth-child(3n+3)),
+section.step-brief-1 .container .question .simple-radios .checkbox-item:not(:nth-child(3n+3)),
+section.step-brief-1 .container .question .simple-radios .radio-item:not(:nth-child(3n+3)) {
+  margin-right: 10px;
+}
+section.step-brief-1 .container .question .simple-checkboxes .checkbox-item input[type=checkbox],
+section.step-brief-1 .container .question .simple-checkboxes .checkbox-item input[type=radio],
+section.step-brief-1 .container .question .simple-checkboxes .radio-item input[type=checkbox],
+section.step-brief-1 .container .question .simple-checkboxes .radio-item input[type=radio],
+section.step-brief-1 .container .question .simple-radios .checkbox-item input[type=checkbox],
+section.step-brief-1 .container .question .simple-radios .checkbox-item input[type=radio],
+section.step-brief-1 .container .question .simple-radios .radio-item input[type=checkbox],
+section.step-brief-1 .container .question .simple-radios .radio-item input[type=radio] {
+  display: none;
+}
+section.step-brief-1 .container .question .simple-checkboxes .checkbox-item label,
+section.step-brief-1 .container .question .simple-checkboxes .radio-item label,
+section.step-brief-1 .container .question .simple-radios .checkbox-item label,
+section.step-brief-1 .container .question .simple-radios .radio-item label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: 1px solid #D3CAC3;
+  border-radius: 8px;
+  width: 100%;
+  height: 49px;
+  font: 16px/18px "MONM";
+  text-align: center;
+  background-color: #fff;
+  cursor: pointer;
+}
+section.step-brief-1 .container .question .simple-checkboxes .checkbox-item input[type=checkbox]:checked ~ label,
+section.step-brief-1 .container .question .simple-checkboxes .checkbox-item input[type=checkbox][checked=checked] ~ label,
+section.step-brief-1 .container .question .simple-checkboxes .checkbox-item input[type=radio]:checked ~ label,
+section.step-brief-1 .container .question .simple-checkboxes .checkbox-item input[type=radio][checked=checked] ~ label,
+section.step-brief-1 .container .question .simple-checkboxes .radio-item input[type=checkbox]:checked ~ label,
+section.step-brief-1 .container .question .simple-checkboxes .radio-item input[type=checkbox][checked=checked] ~ label,
+section.step-brief-1 .container .question .simple-checkboxes .radio-item input[type=radio]:checked ~ label,
+section.step-brief-1 .container .question .simple-checkboxes .radio-item input[type=radio][checked=checked] ~ label,
+section.step-brief-1 .container .question .simple-radios .checkbox-item input[type=checkbox]:checked ~ label,
+section.step-brief-1 .container .question .simple-radios .checkbox-item input[type=checkbox][checked=checked] ~ label,
+section.step-brief-1 .container .question .simple-radios .checkbox-item input[type=radio]:checked ~ label,
+section.step-brief-1 .container .question .simple-radios .checkbox-item input[type=radio][checked=checked] ~ label,
+section.step-brief-1 .container .question .simple-radios .radio-item input[type=checkbox]:checked ~ label,
+section.step-brief-1 .container .question .simple-radios .radio-item input[type=checkbox][checked=checked] ~ label,
+section.step-brief-1 .container .question .simple-radios .radio-item input[type=radio]:checked ~ label,
+section.step-brief-1 .container .question .simple-radios .radio-item input[type=radio][checked=checked] ~ label {
+  border: 2px solid #FF7300;
+  background: #FFE6D1;
+}
 section.step-brief-1 .container .question .checkboxes-img {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -219,6 +298,13 @@ section.step-brief-1 .container .question .add-item {
   background-repeat: no-repeat;
   background-position: left center;
 }
+section.step-brief-1 .container .question .comment-name {
+  margin: 21px 0 10px;
+  font: 16px "MONM";
+}
+section.step-brief-1 .container .question .comment-name.red {
+  color: #f00;
+}
 section.step-brief-1 .container .question textarea {
   border: 1px solid #D3CAC3;
   border-radius: 5px;
@@ -226,6 +312,9 @@ section.step-brief-1 .container .question textarea {
   width: 100%;
   height: 80px;
   font: 16px/24px "MONR";
+}
+section.step-brief-1 .container .question textarea.margin-top {
+  margin-top: 34px;
 }
 section.step-brief-1 .container .question .add-files {
   display: -webkit-box;
@@ -347,54 +436,6 @@ section.step-brief-1 .container .question-furniture .room .select-room .select2-
 section.step-brief-1 .container .question-furniture .room .select-room .select2-container .select2-selection .select2-selection__arrow b {
   display: none;
 }
-section.step-brief-1 .container .question-furniture .room .furniture-checkboxes {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-}
-section.step-brief-1 .container .question-furniture .room .furniture-checkboxes .furniture-item {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-flex: calc((100% - 20px) / 3);
-  -ms-flex: calc((100% - 20px) / 3) 0 0px;
-  flex: calc((100% - 20px) / 3) 0 0;
-  margin-bottom: 10px;
-}
-section.step-brief-1 .container .question-furniture .room .furniture-checkboxes .furniture-item:not(:nth-child(3n+3)) {
-  margin-right: 10px;
-}
-section.step-brief-1 .container .question-furniture .room .furniture-checkboxes .furniture-item input[type=checkbox] {
-  display: none;
-}
-section.step-brief-1 .container .question-furniture .room .furniture-checkboxes .furniture-item label {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  border: 1px solid #D3CAC3;
-  border-radius: 8px;
-  width: 100%;
-  height: 49px;
-  font: 16px/18px "MONM";
-  text-align: center;
-  background-color: #fff;
-  cursor: pointer;
-}
-section.step-brief-1 .container .question-furniture .room .furniture-checkboxes .furniture-item input[type=checkbox]:checked ~ label,
-section.step-brief-1 .container .question-furniture .room .furniture-checkboxes .furniture-item input[type=checkbox][checked=checked] ~ label {
-  border: 2px solid #FF7300;
-  background: #FFE6D1;
-}
 section.step-brief-1 .container .question-furniture textarea {
   margin-top: 31px;
 }
@@ -475,4 +516,13 @@ section.step-brief-1 .container .question-children .childrens .children .remove 
   background-color: transparent;
   background-image: url("/app/img/step-brief-1/remove.svg");
   cursor: pointer;
+}
+section.step-brief-1 .container .question-furniture-inc .upload-desc {
+  margin: 10px 0 10px;
+  font: 13px "MONR";
+  color: #7D7978;
+}
+section.step-brief-1 .container .question-email input[type=text],
+section.step-brief-1 .container .question-phone input[type=text] {
+  width: 460px;
 }

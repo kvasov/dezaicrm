@@ -10,6 +10,10 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
 
   $scope.files = {
     files_styles: [],
+    files_colors: [],
+    files_pets: [],
+    files_furnituresinc: [],
+    files_interior: [],
   };
 
   $scope.rooms = [
@@ -97,6 +101,201 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
     },
   ];
 
+  $scope.colors = [
+    {
+      id: 0,
+      name: 'Consult with a designer',
+      val: 0,
+    },
+    {
+      id: 1,
+      name: 'White',
+      img: 'white.jpg',
+      val: 0,
+    },
+    {
+      id: 2,
+      name: 'Contrasting colours',
+      img: 'contrasting_colours.jpg',
+      val: 0,
+    },
+    {
+      id: 3,
+      name: 'Monochrome',
+      img: 'monochrome.jpg',
+      val: 0,
+    },
+    {
+      id: 4,
+      name: 'Pastel',
+      img: 'pastel.jpg',
+      val: 0,
+    },
+    {
+      id: 5,
+      name: 'Muted',
+      img: 'muted.jpg',
+      val: 0,
+    },
+    {
+      id: 6,
+      name: 'Warm',
+      img: 'warm.jpg',
+      val: 0,
+    },
+    {
+      id: 7,
+      name: 'Colourful',
+      img: 'colourful.jpg',
+      val: 0,
+    },
+    {
+      id: 8,
+      name: 'Cold',
+      img: 'cold.jpg',
+      val: 0,
+    },
+  ];
+
+  $scope.things_dont_like = [
+    {
+      id: 0,
+      name: 'Glossy surfaces',
+    },
+    {
+      id: 1,
+      name: 'Open spaces',
+    },
+    {
+      id: 2,
+      name: 'Dark colours',
+    },
+    {
+      id: 3,
+      name: 'White walls',
+    },
+    {
+      id: 4,
+      name: 'Cupboard with glass',
+    },
+  ];
+
+  $scope.premises = [
+    {
+      id: 0,
+      name: 'Bedroom',
+    },
+    {
+      id: 1,
+      name: 'Guest room/2nd bedroom',
+    },
+    {
+      id: 2,
+      name: 'Nursery',
+    },
+    {
+      id: 3,
+      name: 'Kids room',
+    },
+    {
+      id: 4,
+      name: 'Guest room',
+    },
+    {
+      id: 5,
+      name: 'Office',
+    },
+    {
+      id: 6,
+      name: 'Living room',
+    },
+    {
+      id: 7,
+      name: 'Kitchen',
+    },
+    {
+      id: 8,
+      name: 'Dining room',
+    },
+    {
+      id: 9,
+      name: 'Combined bathroom',
+    },
+    {
+      id: 10,
+      name: 'Toilet',
+    },
+    {
+      id: 11,
+      name: 'Bathroom',
+    },
+  ];
+
+  $scope.pets = [
+    {
+      id: 0,
+      name: 'Cat',
+    },
+    {
+      id: 1,
+      name: 'Dog',
+    },
+    {
+      id: 2,
+      name: 'Exotic pets',
+    },
+    {
+      id: 3,
+      name: 'Fishes',
+    },
+  ];
+
+  $scope.channels = [
+    {
+      id: 0,
+      name: 'E-mail',
+    },
+    {
+      id: 1,
+      name: 'WhatsApp',
+    },
+    {
+      id: 2,
+      name: 'Telegram',
+    },
+    {
+      id: 3,
+      name: 'Phone',
+    },
+    {
+      id: 4,
+      name: 'Video Call',
+    },
+  ];
+
+  $scope.budgets = [
+    {
+      id: 0,
+      name: 'up to 1000€',
+    },
+    {
+      id: 1,
+      name: '1 000 — 3 000 €',
+    },
+    {
+      id: 2,
+      name: '3 000 — 6 000 €',
+    },
+    {
+      id: 3,
+      name: '6 000 — 9 000 €',
+    },
+    {
+      id: 4,
+      name: '9 000 + €',
+    },
+  ];
+
   $scope.questions = [
     {
       id: 0,
@@ -142,6 +341,116 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
         7: false,
         8: false,
       },
+      comment: '',
+    },
+    {
+      id: 4,
+      name: 'Colour palette',
+      colors: {
+        0: false,
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+        8: false,
+      },
+    },
+    {
+      id: 5,
+      name: 'Things that you don`t like to see in your interior',
+      things: {
+        0: false,
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+      },
+      comment: '',
+    },
+    {
+      id: 6,
+      name: 'Other things that you want us to know, like materials, items that you like to keep etc.',
+      val: 0,
+      comment: '',
+    },
+    {
+      id: 7,
+      name: 'What premises are planned?',
+      premises: {
+        0: false,
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+        8: false,
+        9: false,
+        10: false,
+        11: false,
+      },
+      comment: '',
+    },
+    {
+      id: 8,
+      name: 'Pets',
+      pets: {
+        0: false,
+        1: false,
+        2: false,
+        3: false,
+      },
+      comment: '',
+    },
+    {
+      id: 9,
+      name: 'Have you got any hobbies?',
+      val: 0,
+      comment: '',
+    },
+    {
+      id: 10,
+      name: 'Do you have any furniture or other items that should be included in the design project? Please add with dimensions.',
+      val: 0,
+      comment: '',
+    },
+    {
+      id: 11,
+      name: 'Preferred communication channels',
+      channels: {
+        0: false,
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+      },
+      comment: '',
+    },
+    {
+      id: 12,
+      name: 'E-mail address',
+      val: '',
+    },
+    {
+      id: 13,
+      name: 'Phone nr',
+      val: '',
+    },
+    {
+      id: 14,
+      name: 'Budget for decoration',
+      subname: 'This budget includes all materials, lightning and furniture.',
+      val: 2,
+      comment: '',
+    },
+    {
+      id: 15,
+      name: 'Add images that you want your interior to resemble',
+      subname: 'Минимум 5 изображений',
       comment: '',
     },
   ];
@@ -220,13 +529,29 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
 
   $scope.disabledWhen3Items = function (target) {
     countCheckedItems = 0;
+    designer = false;
     for (key in target) {
       if (target[key]) {
+        if (key == 0) {
+          designer = true;
+        }
         countCheckedItems++;
       }
     }
-    if (countCheckedItems > 2) {
+    if (designer) {
       return true;
+    } else if (countCheckedItems > 2) {
+      return true;
+    }
+  };
+
+  $scope.checkDesigner = function (target) {
+    if (target[0]) {
+      for (key in target) {
+        if (key != 0) {
+          target[key] = false;
+        }
+      }
     }
   };
 
@@ -243,12 +568,41 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
   };
 });
 
-app.service('brief1Service', function ($http) {
+app.service('brief1Service', function ($http, httpPostFactory) {
   this.send = function (data) {
     console.log(data);
     $http.post('uploadpost.php', { brief: data }).success(function (response) {
       console.log(response);
     });
+
+    $scope.filesForUploading = false;
+
+    for (var key in $scope.files) {
+      if ($scope.files.hasOwnProperty(key) && !/errors/.test(key)) {
+        $scope.files[key].forEach((file, i) => {
+          var formData = new FormData();
+
+          if (!file.done) {
+            formData.append(key + '_' + i, file._file);
+            file.done = true;
+
+            httpPostFactory(
+              'upload.php?target=' + key,
+              formData,
+              function (callback) {
+                console.log(callback);
+              }
+            );
+          }
+        });
+      }
+    }
+
+    // if ($scope.filesForUploading) {
+    //   httpPostFactory('upload.php', formData, function (callback) {
+    //     console.log(callback);
+    //   });
+    // }
   };
 
   return this;

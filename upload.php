@@ -1,5 +1,6 @@
 <?php
 // print_r($_POST);
+print_r($_REQUEST);
 if ( !empty( $_FILES ) ) {
 
     foreach($_FILES as $file) {

@@ -38,7 +38,7 @@ app.controller('MainCtrl', function ($scope, httpPostFactory) {
       if ($scope.files.hasOwnProperty(key) && !/errors/.test(key)) {
         $scope.files[key].forEach((file, i) => {
           if (!file.done) {
-            formData.append(key + '_file_' + i, file._file);
+            formData.append(key + '_' + i, file._file);
             file.done = true;
             $scope.filesForUploading = true;
           }
@@ -185,14 +185,14 @@ app.factory('httpPostFactory', function ($http) {
         }
       });
 
-    $http
-      .post(file, data, {
-        transformRequest: angular.identity,
-        headers: { 'Content-Type': undefined, 'Process-Data': false },
-      })
-      .success(function (response) {
-        $scope.response_msg = response;
-      });
+    // $http
+    //   .post(file, data, {
+    //     transformRequest: angular.identity,
+    //     headers: { 'Content-Type': undefined, 'Process-Data': false },
+    //   })
+    //   .success(function (response) {
+    //     $scope.response_msg = response;
+    //   });
   };
 });
 

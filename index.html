@@ -206,12 +206,11 @@
                 ></select>
               </div>
 
-              <div class="furniture-checkboxes">
-                <div class="furniture-item" ng-repeat="furniture in furnitures">
+              <div class="simple-checkboxes">
+                <div class="checkbox-item" ng-repeat="furniture in furnitures">
                   <input
                     type="checkbox"
                     id="furnitures_{{parentIndex}}_{{$index}}"
-                    type="checkbox"
                     ng-model="questions[0].rooms[parentIndex].furnitures[$index]"
                   />
                   <label for="furnitures_{{parentIndex}}_{{$index}}"
@@ -320,6 +319,7 @@
                   type="checkbox"
                   ng-model="questions[3].styles[$index]"
                   ng-disabled="disabledWhen3Items(questions[3].styles) && !questions[3].styles[$index]"
+                  ng-change="checkDesigner(questions[3].styles)"
                 />
                 <label
                   ng-class="{'designer': ($index == 0), 'disabled': (disabledWhen3Items(questions[3].styles) && !questions[3].styles[$index])}"
@@ -359,6 +359,372 @@
                     class="del"
                     ng-show="file != null"
                     ng-click="removeFile('files_styles', $index)"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="question question-colors">
+            <div class="question-name">
+              {{questions[4].id + 1}}. {{questions[4].name}}
+            </div>
+
+            <div class="checkboxes-img">
+              <div
+                class="checkbox-item"
+                ng-repeat="color in colors track by $index"
+              >
+                <input
+                  id="checkbox-color-{{$index}}"
+                  type="checkbox"
+                  ng-model="questions[4].colors[$index]"
+                  ng-disabled="disabledWhen3Items(questions[4].colors) && !questions[4].colors[$index]"
+                  ng-change="checkDesigner(questions[4].colors)"
+                />
+                <label
+                  ng-class="{'designer': ($index == 0), 'disabled': (disabledWhen3Items(questions[4].colors) && !questions[4].colors[$index])}"
+                  for="checkbox-color-{{$index}}"
+                >
+                  <img
+                    ng-if="$index > 0"
+                    ng-src="/app/img/step-brief-1/colors/{{colors[$index].img}}"
+                  />
+                  <div class="name">{{colors[$index].name}}</div>
+                </label>
+              </div>
+            </div>
+            <textarea
+              placeholder="Comments (optional)"
+              ng-model="questions[4].comment"
+            ></textarea>
+
+            <div class="add-files">
+              <div class="input-field">
+                <input
+                  id="input-file-colors"
+                  type="file"
+                  ng-file-model="files_colors"
+                  filetype="files_colors"
+                  errors="files_colors_errors"
+                  multiple
+                />
+                <label class="add" for="input-file-colors"
+                  >Upload samples
+                </label>
+              </div>
+              <div class="samples">
+                <div class="sample" ng-repeat="file in files.files_colors">
+                  <img ng-src="{{file.url}}" ng-show="file != null" />
+                  <div
+                    class="del"
+                    ng-show="file != null"
+                    ng-click="removeFile('files_colors', $index)"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="question question-things-dont-like">
+            <div class="question-name">
+              {{questions[5].id + 1}}. {{questions[5].name}}
+            </div>
+
+            <div class="simple-checkboxes">
+              <div class="checkbox-item" ng-repeat="thing in things_dont_like">
+                <input
+                  type="checkbox"
+                  id="thing_{{$index}}"
+                  ng-model="questions[5].things[$index]"
+                />
+                <label for="thing_{{$index}}">{{thing.name}}</label>
+              </div>
+            </div>
+            <div class="comment-name">Other</div>
+            <textarea
+              placeholder="Comments"
+              ng-model="questions[5].comment"
+            ></textarea>
+          </div>
+
+          <div class="question question-other-things">
+            <div class="question-name">
+              {{questions[6].id + 1}}. {{questions[6].name}}
+            </div>
+
+            <div class="btns-yes-no">
+              <button
+                ng-class="questions[6].val == 1 && 'active'"
+                ng-click="questions[6].val = 1"
+              >
+                Yes
+              </button>
+              <button
+                ng-class="questions[6].val == 0 && 'active'"
+                ng-click="questions[6].val = 0"
+              >
+                No
+              </button>
+            </div>
+
+            <div class="comment-name red">Obligatory</div>
+            <textarea
+              placeholder="Comments"
+              ng-model="questions[6].comment"
+            ></textarea>
+          </div>
+
+          <div class="question question-premises">
+            <div class="question-name">
+              {{questions[7].id + 1}}. {{questions[7].name}}
+            </div>
+
+            <div class="simple-checkboxes">
+              <div class="checkbox-item" ng-repeat="premise in premises">
+                <input
+                  type="checkbox"
+                  id="premise_{{$index}}"
+                  ng-model="questions[7].premises[$index]"
+                />
+                <label for="premise_{{$index}}">{{premise.name}}</label>
+              </div>
+            </div>
+            <div class="comment-name">Other</div>
+            <textarea
+              placeholder="Comments (optional)"
+              ng-model="questions[7].comment"
+            ></textarea>
+          </div>
+
+          <div class="question question-pets">
+            <div class="question-name">
+              {{questions[8].id + 1}}. {{questions[8].name}}
+            </div>
+
+            <div class="simple-checkboxes">
+              <div class="checkbox-item" ng-repeat="pet in pets">
+                <input
+                  type="checkbox"
+                  id="pet_{{$index}}"
+                  ng-model="questions[8].pets[$index]"
+                />
+                <label for="pet_{{$index}}">{{pet.name}}</label>
+              </div>
+            </div>
+            <div class="comment-name">Other</div>
+            <textarea
+              placeholder="Comments (optional)"
+              ng-model="questions[8].comment"
+            ></textarea>
+
+            <div class="add-files">
+              <div class="input-field">
+                <input
+                  id="input-file-pets"
+                  type="file"
+                  ng-file-model="files_pets"
+                  filetype="files_pets"
+                  errors="files_pets_errors"
+                  multiple
+                />
+                <label class="add" for="input-file-pets">Upload samples </label>
+              </div>
+              <div class="samples">
+                <div class="sample" ng-repeat="file in files.files_pets">
+                  <img ng-src="{{file.url}}" ng-show="file != null" />
+                  <div
+                    class="del"
+                    ng-show="file != null"
+                    ng-click="removeFile('files_pets', $index)"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="question question-hobbies">
+            <div class="question-name">
+              {{questions[9].id + 1}}. {{questions[9].name}}
+            </div>
+
+            <div class="btns-yes-no">
+              <button
+                ng-class="questions[9].val == 1 && 'active'"
+                ng-click="questions[9].val = 1"
+              >
+                Yes
+              </button>
+              <button
+                ng-class="questions[9].val == 0 && 'active'"
+                ng-click="questions[9].val = 0"
+              >
+                No
+              </button>
+            </div>
+
+            <textarea
+              class="margin-top"
+              placeholder="Comments"
+              ng-model="questions[9].comment"
+            ></textarea>
+          </div>
+
+          <div class="question question-furniture-inc">
+            <div class="question-name">
+              {{questions[10].id + 1}}. {{questions[10].name}}
+            </div>
+
+            <div class="btns-yes-no">
+              <button
+                ng-class="questions[10].val == 1 && 'active'"
+                ng-click="questions[10].val = 1"
+              >
+                Yes
+              </button>
+              <button
+                ng-class="questions[10].val == 0 && 'active'"
+                ng-click="questions[10].val = 0"
+              >
+                No
+              </button>
+            </div>
+
+            <textarea
+              class="margin-top"
+              placeholder="Comments"
+              ng-model="questions[10].comment"
+            ></textarea>
+
+            <div class="upload-desc">
+              Upload item photo with dimensions that you would like to keep or
+              add.
+            </div>
+
+            <div class="add-files">
+              <div class="input-field">
+                <input
+                  id="input-file-furnituresinc"
+                  type="file"
+                  ng-file-model="files_furnituresinc"
+                  filetype="files_furnituresinc"
+                  errors="files_furnituresinc_errors"
+                  multiple
+                />
+                <label class="add" for="input-file-furnituresinc"
+                  >Upload samples
+                </label>
+              </div>
+              <div class="samples">
+                <div
+                  class="sample"
+                  ng-repeat="file in files.files_furnituresinc"
+                >
+                  <img ng-src="{{file.url}}" ng-show="file != null" />
+                  <div
+                    class="del"
+                    ng-show="file != null"
+                    ng-click="removeFile('files_furnituresinc', $index)"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="question question-channels">
+            <div class="question-name">
+              {{questions[11].id + 1}}. {{questions[11].name}}
+            </div>
+
+            <div class="simple-checkboxes">
+              <div class="checkbox-item" ng-repeat="channel in channels">
+                <input
+                  type="checkbox"
+                  id="channel_{{$index}}"
+                  ng-model="questions[11].channels[$index]"
+                />
+                <label for="channel_{{$index}}">{{channel.name}}</label>
+              </div>
+            </div>
+            <div class="comment-name">I prefer other channels</div>
+            <textarea
+              placeholder="Comments (optional)"
+              ng-model="questions[11].comment"
+            ></textarea>
+          </div>
+
+          <div class="question question-email">
+            <div class="question-name">
+              {{questions[12].id + 1}}. {{questions[12].name}}
+            </div>
+
+            <input type="text" ng-model="questions[12].val" />
+          </div>
+
+          <div class="question question-phone">
+            <div class="question-name">
+              {{questions[13].id + 1}}. {{questions[13].name}}
+            </div>
+
+            <input type="text" ng-model="questions[13].val" />
+          </div>
+
+          <div class="question question-budget">
+            <div class="question-name">
+              {{questions[14].id + 1}}. {{questions[14].name}}
+            </div>
+            <div class="question-subname">{{questions[14].subname}}</div>
+
+            <div class="simple-radios">
+              <div class="radio-item" ng-repeat="budget in budgets">
+                <input
+                  type="radio"
+                  name="budget"
+                  id="budget_{{$index}}"
+                  ng-model="questions[14].val"
+                  ng-value="budget.id"
+                />
+                <label for="budget_{{$index}}">{{budget.name}}</label>
+              </div>
+            </div>
+            <textarea
+              placeholder="Comments (optional)"
+              ng-model="questions[14].comment"
+            ></textarea>
+          </div>
+
+          <div class="question question-furniture-inc">
+            <div class="question-name">
+              {{questions[15].id + 1}}. {{questions[15].name}}
+            </div>
+            <div class="question-subname">{{questions[15].subname}}</div>
+
+            <textarea
+              placeholder="Comments"
+              ng-model="questions[15].comment"
+            ></textarea>
+
+            <div class="add-files">
+              <div class="input-field">
+                <input
+                  id="input-file-interior"
+                  type="file"
+                  ng-file-model="files_interior"
+                  filetype="files_interior"
+                  errors="files_interior_errors"
+                  multiple
+                />
+                <label class="add" for="input-file-interior"
+                  >Upload samples
+                </label>
+              </div>
+              <div class="samples">
+                <div class="sample" ng-repeat="file in files.files_interior">
+                  <img ng-src="{{file.url}}" ng-show="file != null" />
+                  <div
+                    class="del"
+                    ng-show="file != null"
+                    ng-click="removeFile('files_interior', $index)"
                   ></div>
                 </div>
               </div>
