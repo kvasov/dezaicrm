@@ -1,12 +1,16 @@
 app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
-  $scope.init = function () {
+  $scope.init = function (data) {
     var intervalSelect2 = setInterval(function () {
       if ($('.select2').length > 0) {
         $scope.select2Init();
         clearInterval(intervalSelect2);
       }
     });
+    $scope.questions[12].val = data.email;
+    $scope.questions[13].val = data.phone;
   };
+
+  $scope.canSend = false;
 
   $scope.files = {
     files_styles: [],
@@ -33,15 +37,59 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
   $scope.furnitures = [
     {
       id: 0,
-      name: 'Диван',
+      name: 'King bed',
     },
     {
       id: 1,
-      name: 'Шкаф',
+      name: 'Single bed',
     },
     {
-      id: 0,
-      name: 'Кресло',
+      id: 2,
+      name: 'Sofa',
+    },
+    {
+      id: 3,
+      name: 'Bedside tables',
+    },
+    {
+      id: 4,
+      name: 'Working zone',
+    },
+    {
+      id: 5,
+      name: 'Dresser',
+    },
+    {
+      id: 6,
+      name: 'Planned cabinet',
+    },
+    {
+      id: 7,
+      name: 'Fireplace',
+    },
+    {
+      id: 8,
+      name: 'Fireplace',
+    },
+    {
+      id: 9,
+      name: 'Built-in wardrobe',
+    },
+    {
+      id: 10,
+      name: 'Cloakroom system',
+    },
+    {
+      id: 11,
+      name: 'Audio/video equipment',
+    },
+    {
+      id: 12,
+      name: 'Cradle',
+    },
+    {
+      id: 13,
+      name: 'Example of a long name variant',
     },
   ];
 
@@ -455,10 +503,6 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
     },
   ];
 
-  $scope.send = function () {
-    brief1Service.send($scope.questions);
-  };
-
   $scope.addRoom = function () {
     $scope.questions[0].rooms.push({
       id:
@@ -474,13 +518,6 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
     if ($scope.questions[0].rooms.length == 1) {
       console.log('Нельзя удалить последнюю комнату');
     } else {
-      console.log('i = ', i);
-      // $scope.questions[0].rooms.splice(i, 1);
-      console.log(
-        $filter('filter')($scope.questions[0].rooms, function (value, index) {
-          return value.id !== i;
-        })
-      );
       $scope.questions[0].rooms = angular.copy(
         $filter('filter')($scope.questions[0].rooms, function (value, index) {
           return value.id !== i;
@@ -565,6 +602,79 @@ app.controller('BriefCtrl', function ($scope, $filter, brief1Service) {
 
   $scope.removeFile = function (fileType, index) {
     $scope.files[fileType].splice(index, 1);
+  };
+
+  $scope.validate = function () {
+    $scope.canSend = true;
+
+    $scope.questions[0].rooms.forEach((room, i) => {
+      roomHasFurnitures =
+        $filter('filter')(room.furnitures, function (value, index) {
+          return value == true;
+        }).length > 0;
+      if (!roomHasFurnitures && $scope.questions[0].rooms.length > 0) {
+        $scope.removeRoom(i);
+      }
+    });
+    if (!roomHasFurnitures) {
+      $scope.canSend = false;
+      $scope.questions[0].error = true;
+    } else {
+      $scope.questions[0].error = false;
+    }
+
+    // question 1
+    number_people = parseInt($scope.questions[1].number_people);
+    if (Number.isInteger(number_people) && number_people > 0) {
+      $scope.questions[1].error = false;
+    } else {
+      $scope.canSend = false;
+      $scope.questions[1].error = true;
+    }
+
+    // question 3
+    countCheckedItems = 0;
+    for (key in $scope.questions[3].styles) {
+      if ($scope.questions[3].styles[key]) {
+        countCheckedItems++;
+      }
+    }
+    if (countCheckedItems == 0) {
+      $scope.canSend = false;
+      $scope.questions[3].error = true;
+    } else {
+      $scope.questions[3].error = false;
+    }
+
+    // question 4
+    countCheckedItems = 0;
+    for (key in $scope.questions[4].colors) {
+      if ($scope.questions[4].colors[key]) {
+        countCheckedItems++;
+      }
+    }
+    if (countCheckedItems == 0) {
+      $scope.canSend = false;
+      $scope.questions[4].error = true;
+    } else {
+      $scope.questions[4].error = false;
+    }
+
+    // question 6
+    if ($scope.questions[6].val == 1 && $scope.questions[6].comment == '') {
+      $scope.canSend = false;
+      $scope.questions[6].error = true;
+    } else {
+      $scope.questions[6].error = false;
+    }
+  };
+
+  $scope.send = function () {
+    $scope.validate();
+    if ($scope.canSend) {
+      console.log('send');
+      // brief1Service.send($scope.questions);
+    }
   };
 });
 

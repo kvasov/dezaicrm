@@ -41,6 +41,7 @@ section.step-brief-1 .container .question {
   margin-bottom: 32px;
   border-radius: 8px;
   padding: 30px 32px;
+  border: 1px solid #FAF7F6;
   background-color: #FAF7F6;
 }
 section.step-brief-1 .container .question .question-name {
@@ -393,6 +394,9 @@ section.step-brief-1 .container .question .add-files .samples .sample .del {
   background-image: url("/app/img/step-brief-1/remove.svg");
   cursor: pointer;
 }
+section.step-brief-1 .container .question.has-error {
+  border: 1px solid red;
+}
 section.step-brief-1 .container .question-furniture .room {
   margin-bottom: 20px;
 }
@@ -401,28 +405,33 @@ section.step-brief-1 .container .question-furniture .room .select-room span.sele
   margin-bottom: 10px;
   font: 16px "MONM";
 }
-section.step-brief-1 .container .question-furniture .room .select-room select {
+section.step-brief-1 .container .question-furniture .room .select-room .in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+section.step-brief-1 .container .question-furniture .room .select-room .in select {
   height: 49px;
 }
-section.step-brief-1 .container .question-furniture .room .select-room .select2-container {
-  margin-bottom: 32px;
+section.step-brief-1 .container .question-furniture .room .select-room .in .select2-container {
+  margin: 0 12px 32px 0;
   width: 280px !important;
 }
-section.step-brief-1 .container .question-furniture .room .select-room .select2-container .select2-selection {
+section.step-brief-1 .container .question-furniture .room .select-room .in .select2-container .select2-selection {
   height: 49px;
   border: 1.5px solid #D8D6D4;
   border-radius: 4px;
 }
-section.step-brief-1 .container .question-furniture .room .select-room .select2-container .select2-selection .select2-selection__rendered {
+section.step-brief-1 .container .question-furniture .room .select-room .in .select2-container .select2-selection .select2-selection__rendered {
   padding-left: 22px !important;
   font: 14px/45px "MONM";
 }
-section.step-brief-1 .container .question-furniture .room .select-room .select2-container .select2-selection .select2-selection__rendered span {
+section.step-brief-1 .container .question-furniture .room .select-room .in .select2-container .select2-selection .select2-selection__rendered span {
   margin-left: 17px;
   font: 14px "MUSR";
   color: #aaa;
 }
-section.step-brief-1 .container .question-furniture .room .select-room .select2-container .select2-selection .select2-selection__arrow {
+section.step-brief-1 .container .question-furniture .room .select-room .in .select2-container .select2-selection .select2-selection__arrow {
   position: absolute;
   top: 0;
   right: 0;
@@ -433,8 +442,27 @@ section.step-brief-1 .container .question-furniture .room .select-room .select2-
   background-position: center;
   background-repeat: no-repeat;
 }
-section.step-brief-1 .container .question-furniture .room .select-room .select2-container .select2-selection .select2-selection__arrow b {
+section.step-brief-1 .container .question-furniture .room .select-room .in .select2-container .select2-selection .select2-selection__arrow b {
   display: none;
+}
+section.step-brief-1 .container .question-furniture .room .select-room .in .del {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 14px;
+  border: none;
+  padding-left: 29px;
+  height: 20px;
+  background-color: transparent;
+  background-image: url("/app/img/step-brief-1/remove.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  font: 13px "MONR";
+  color: #f00;
+  cursor: pointer;
 }
 section.step-brief-1 .container .question-furniture textarea {
   margin-top: 31px;
@@ -525,4 +553,40 @@ section.step-brief-1 .container .question-furniture-inc .upload-desc {
 section.step-brief-1 .container .question-email input[type=text],
 section.step-brief-1 .container .question-phone input[type=text] {
   width: 460px;
+}
+section.step-brief-1 .container .send-btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 16px;
+  border-radius: 20px;
+  border: none;
+  height: 40px;
+  padding: 0 32px;
+  background-color: #FF7300;
+  font: 13px "MONM";
+  color: #fff;
+  cursor: pointer;
+}
+section.step-brief-1 .container .send-btn img {
+  -webkit-box-flex: 16px;
+  -ms-flex: 16px 0 0px;
+  flex: 16px 0 0;
+  margin-left: 10px;
+  height: 16px;
+}
+section.step-brief-1 .container .send-btn.disabled {
+  background-color: #D8D6D4;
+  cursor: default;
+}
+section.step-brief-1 .container .error {
+  margin-top: 10px;
+  font: 12px "MONR";
+  color: #f00;
 }

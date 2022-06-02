@@ -171,7 +171,11 @@
         </div>
       </section>
 
-      <section class="step-brief-1" ng-controller="BriefCtrl" ng-init="init()">
+      <section
+        class="step-brief-1"
+        ng-controller="BriefCtrl"
+        ng-init="init({email: 'qwe@qwe.qwe', phone: '234523452345'})"
+      >
         <div class="container">
           <div class="step-head step-head-hor">
             <div class="left">
@@ -182,7 +186,10 @@
               </div>
             </div>
           </div>
-          <div class="question question-furniture">
+          <div
+            class="question question-furniture"
+            ng-class="questions[0].error && 'has-error'"
+          >
             <div class="question-name">
               {{questions[0].id + 1}}. {{questions[0].name}}
             </div>
@@ -199,11 +206,21 @@
               />
               <div class="select-room">
                 <span class="select-room-title">Select the room</span>
-                <select
-                  class="select2"
-                  ng-model="questions[0].rooms[$index].roomType"
-                  ng-options="room.id as room.name for room in rooms"
-                ></select>
+                <div class="in">
+                  <select
+                    class="select2"
+                    ng-model="questions[0].rooms[$index].roomType"
+                    ng-options="room.id as room.name for room in rooms"
+                  ></select>
+
+                  <a
+                    class="del"
+                    ng-if="questions[0].rooms.length > 1"
+                    ng-click="removeRoom(room.id)"
+                  >
+                    Delete room
+                  </a>
+                </div>
               </div>
 
               <div class="simple-checkboxes">
@@ -216,16 +233,8 @@
                   <label for="furnitures_{{parentIndex}}_{{$index}}"
                     >{{furniture.name}}</label
                   >
-                  <!-- {{questions[0].rooms[$parentIndex].furnitures[$index]}} -->
                 </div>
               </div>
-
-              <button
-                ng-if="questions[0].rooms.length > 1"
-                ng-click="removeRoom(room.id)"
-              >
-                del
-              </button>
             </div>
             <a class="add-item" ng-click="addRoom()">Add</a>
 
@@ -235,7 +244,10 @@
             ></textarea>
           </div>
 
-          <div class="question question-number-people">
+          <div
+            class="question question-number-people"
+            ng-class="questions[1].error && 'has-error'"
+          >
             <div class="question-name">
               {{questions[1].id + 1}}. {{questions[1].name}}
             </div>
@@ -303,7 +315,10 @@
             </div>
           </div>
 
-          <div class="question question-styles">
+          <div
+            class="question question-styles"
+            ng-class="questions[3].error && 'has-error'"
+          >
             <div class="question-name">
               {{questions[3].id + 1}}. {{questions[3].name}}
             </div>
@@ -365,7 +380,10 @@
             </div>
           </div>
 
-          <div class="question question-colors">
+          <div
+            class="question question-colors"
+            ng-class="questions[4].error && 'has-error'"
+          >
             <div class="question-name">
               {{questions[4].id + 1}}. {{questions[4].name}}
             </div>
@@ -448,7 +466,10 @@
             ></textarea>
           </div>
 
-          <div class="question question-other-things">
+          <div
+            class="question question-other-things"
+            ng-class="questions[6].error && 'has-error'"
+          >
             <div class="question-name">
               {{questions[6].id + 1}}. {{questions[6].name}}
             </div>
@@ -468,11 +489,13 @@
               </button>
             </div>
 
-            <div class="comment-name red">Obligatory</div>
-            <textarea
-              placeholder="Comments"
-              ng-model="questions[6].comment"
-            ></textarea>
+            <div ng-if="questions[6].val == 1">
+              <div class="comment-name red">Obligatory</div>
+              <textarea
+                placeholder="Comments"
+                ng-model="questions[6].comment"
+              ></textarea>
+            </div>
           </div>
 
           <div class="question question-premises">
@@ -658,7 +681,7 @@
               {{questions[12].id + 1}}. {{questions[12].name}}
             </div>
 
-            <input type="text" ng-model="questions[12].val" />
+            <input disabled type="text" ng-model="questions[12].val" />
           </div>
 
           <div class="question question-phone">
@@ -666,7 +689,7 @@
               {{questions[13].id + 1}}. {{questions[13].name}}
             </div>
 
-            <input type="text" ng-model="questions[13].val" />
+            <input disabled type="text" ng-model="questions[13].val" />
           </div>
 
           <div class="question question-budget">
@@ -731,7 +754,15 @@
             </div>
           </div>
 
-          <button ng-click="send()">SEND</button>
+          <div class="center">
+            <button class="send-btn" ng-click="send()">
+              Confirm and continue
+              <img src="/app/img/shared/arrow-left.svg" />
+            </button>
+            <div class="error">
+              Answer all the questions and fill in the required fields
+            </div>
+          </div>
         </div>
       </section>
 
