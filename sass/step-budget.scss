@@ -1,0 +1,416 @@
+.title {
+  margin-bottom: 8px;
+  padding-left: 275px;
+  font: 32px 'MONM';
+}
+
+.subtitle {
+  padding-left: 275px;
+  font: 16px 'MONM';
+}
+
+.inner {
+  display: flex;
+  padding: 40px 0 0 55px;
+
+  .progress-mobile,
+  .save-draft-mobile {
+    display: none;
+  }
+
+  .left {
+    flex: 190px 0 0;
+    margin-right: 30px;
+
+    .progress {
+      margin-bottom: 31px;
+
+      .item {
+        position: relative;
+        margin-bottom: 40px;
+        padding-left: 26px;
+        font: 14px/20px 'MONM';
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: -3px;
+          left: 0;
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          border: 3px solid #e8e7e7;
+          box-sizing: border-box;
+        }
+
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 15px;
+          left: 9px;
+          width: 2px;
+          height: 44px;
+          background-color: #e8e7e7;
+        }
+
+        &.current::before {
+          background-color: #59d929;
+        }
+
+        &.complete::before {
+          background-color: #59d929;
+          // background-image: image_url(
+          //   'clientnew/price_ranges/progress_check.svg'
+          // );
+          background-size: 10px;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+
+        &:last-child::after {
+          display: none;
+        }
+      }
+    }
+
+    .actions {
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 16px;
+        height: 40px;
+        font: 14px 'MONM';
+
+        &.next {
+          border-radius: 5px;
+          background-color: #59d929;
+          opacity: 0.4;
+          color: #fff;
+
+          &.active {
+            opacity: 1;
+          }
+        }
+
+        &.save {
+          border-radius: 4px;
+          border: 1px solid #d8d8d8;
+          padding-left: 20px;
+          // background-image: image_url('clientnew/price_ranges/draft.svg');
+          background-size: 16px 18px;
+          background-position: left 13px center;
+          background-repeat: no-repeat;
+        }
+      }
+
+      .saved {
+        display: none;
+        padding: 28px 0 0;
+        font: 14px 'MONM';
+        text-align: center;
+        color: #59d929;
+        // background-image: image_url('clientnew/price_ranges/check.svg');
+        background-size: 24px;
+        background-position: center top;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  .right {
+    flex: 709px 0 0;
+
+    .room {
+      margin-bottom: 20px;
+      border: 1px solid #e7e1dc;
+      border-radius: 10px;
+      overflow: hidden;
+
+      .up {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 64px;
+        padding: 0 16px;
+        background-color: #fbf7f4;
+
+        .room-left {
+          display: flex;
+          align-items: center;
+
+          .name {
+            flex: 124px 0 0;
+            font: 24px 'MONM';
+          }
+
+          .price {
+            font: 18px 'MONM';
+            color: #9f8877;
+            white-space: nowrap;
+          }
+        }
+
+        .room-right {
+          a {
+            font: 14px 'MONM';
+            color: #549bbc;
+            border-bottom: 1px dotted #549bbc;
+          }
+
+          .hide {
+            display: inline-block;
+          }
+
+          .show {
+            display: none;
+          }
+        }
+      }
+
+      .in {
+        // height: auto;
+        padding: 20px;
+        // transition: all 0.2s ease;
+
+        .section {
+          padding-bottom: 25px;
+
+          .name {
+            display: flex;
+            align-items: center;
+            margin-bottom: 9px;
+            height: 32px;
+            padding-left: 43px;
+            font: 20px 'MONM';
+            background-size: 32px;
+            background-position: left center;
+            background-repeat: no-repeat;
+
+            &.doors {background-image: url('/app/img/budget/categories/doors.svg');}
+            &.walls {background-image: url('/app/img/budget/categories/walls.svg');}
+            &.floor {background-image: url('/app/img/budget/categories/floor.svg');}
+            &.plumbing {background-image: url('/app/img/budget/categories/plumbing.svg');}
+            &.light {background-image: url('/app/img/budget/categories/light.svg');}
+            &.furniture {background-image: url('/app/img/budget/categories/furniture.svg');}
+            &.household {background-image: url('/app/img/budget/categories/household.svg');}
+          }
+
+          .subsection {
+            margin-bottom: 23px;
+
+            .name {
+              margin-bottom: 0;
+              font: 16px 'MONM';
+            }
+
+            .per {
+              display: flex;
+              align-items: center;
+              margin-bottom: 12px;
+              padding-left: 43px;
+              font: 14px 'MONR';
+              color: #545454;
+
+              .tooltip-d {
+                display: inline-block;
+                position: relative;
+                margin-top: 0;
+                top: 2px;
+                margin-left: 6px;
+                width: 16px;
+                height: 16px;
+                // background-image: image_url(
+                //   'clientnew/price_ranges/info.svg'
+                // );
+                background-size: 16px;
+
+                .tooltip-content {
+                  visibility: hidden;
+                  position: absolute;
+                  top: 40px;
+                  left: -100px;
+                  width: 265px;
+                  border-radius: 10px;
+                  padding: 13px 15px 13px 19px;
+                  background-color: #656565;
+                  font: 12px/15px 'MONR';
+                  color: #fff;
+                  z-index: 1;
+                  opacity: 0;
+                  transition: all 0.2s ease;
+
+                  &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: -6px;
+                    left: 100px;
+                    width: 16px;
+                    height: 6px;
+                    // background-image: image_url(
+                    //   'clientnew/price_ranges/tooltip-arrow.svg'
+                    // );
+                    background-size: cover;
+                  }
+                }
+
+                &:hover .tooltip-content {
+                  visibility: visible;
+                  opacity: 1;
+                  top: 27px;
+                  transition: all 0.2s ease;
+                }
+              }
+
+              .tooltip-m,
+              .tooltip-m-content {
+                display: none;
+              }
+            }
+
+            .answers {
+              display: flex;
+              justify-content: space-between;
+              padding-left: 43px;
+
+              .answer {
+                flex: 195px 0 0;
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                height: 81px;
+                border: 1px solid #cdcdcd;
+                border-radius: 5px;
+                padding: 19px;
+                font: 16px 'MUSR';
+                cursor: pointer;
+
+                .price {
+                  margin-top: 6px;
+                  font: 13px 'MONR';
+                  color: #545454;
+
+                  span {
+                    font: inherit;
+                    color: inherit;
+                  }
+                }
+              }
+
+              .active {
+                border: 2px solid #59d929;
+                padding: 18px;
+                background-color: #eefee8;
+              }
+            }
+          }
+        }
+
+        .continue {
+          display: flex;
+          flex-flow: column nowrap;
+          align-items: center;
+          padding-bottom: 9px;
+
+          a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 12px;
+            height: 58px;
+            border-radius: 4px;
+            padding: 0 30px;
+            background-color: #59d929;
+            font: 18px 'MONM';
+            color: #fff;
+
+            &.disabled {
+              opacity: 0.4;
+            }
+          }
+
+          .desc {
+            font: 14px 'MONR';
+            color: #545454;
+          }
+        }
+      }
+
+      &.minimized {
+        .up {
+          .room-right .hide {
+            display: none;
+          }
+
+          .room-right .show {
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    .finish {
+      padding: 10px 0 60px;
+
+      .total {
+        margin-bottom: 53px;
+        font: 16px 'MONM';
+
+        .val {
+          margin-top: 8px;
+          font: 32px 'MONM';
+        }
+      }
+
+      textarea {
+        margin-bottom: 41px;
+        width: 100%;
+        height: 100px;
+        border: 1px solid #cdcdcd;
+        border-radius: 5px;
+        padding: 14px;
+        font: 16px 'MONM';
+      }
+
+      .next {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+          display: inline-flex;
+          align-items: center;
+          margin-bottom: 13px;
+          border-radius: 4px;
+          height: 58px;
+          padding: 0 17px 0 20px;
+          background-color: #59d929;
+          font: 18px 'MONB';
+          color: #fff;
+          text-decoration: none;
+
+          img {
+            margin-left: 7px;
+            flex: 24px 0 0;
+            height: 24px;
+          }
+        }
+
+        .desc {
+          width: 312px;
+          font: 14px 'MONR';
+          color: #545454;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

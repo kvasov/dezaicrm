@@ -1,0 +1,430 @@
+.title {
+  margin-bottom: 8px;
+  padding-left: 275px;
+  font: 32px "MONM";
+}
+
+.subtitle {
+  padding-left: 275px;
+  font: 16px "MONM";
+}
+
+.inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 40px 0 0 55px;
+}
+.inner .progress-mobile,
+.inner .save-draft-mobile {
+  display: none;
+}
+.inner .left {
+  -webkit-box-flex: 190px;
+  -ms-flex: 190px 0 0px;
+  flex: 190px 0 0;
+  margin-right: 30px;
+}
+.inner .left .progress {
+  margin-bottom: 31px;
+}
+.inner .left .progress .item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 26px;
+  font: 14px/20px "MONM";
+}
+.inner .left .progress .item:last-child {
+  margin-bottom: 0;
+}
+.inner .left .progress .item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -3px;
+  left: 0;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #e8e7e7;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.inner .left .progress .item::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: 9px;
+  width: 2px;
+  height: 44px;
+  background-color: #e8e7e7;
+}
+.inner .left .progress .item.current::before {
+  background-color: #59d929;
+}
+.inner .left .progress .item.complete::before {
+  background-color: #59d929;
+  background-size: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.inner .left .progress .item:last-child::after {
+  display: none;
+}
+.inner .left .actions a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 16px;
+  height: 40px;
+  font: 14px "MONM";
+}
+.inner .left .actions a.next {
+  border-radius: 5px;
+  background-color: #59d929;
+  opacity: 0.4;
+  color: #fff;
+}
+.inner .left .actions a.next.active {
+  opacity: 1;
+}
+.inner .left .actions a.save {
+  border-radius: 4px;
+  border: 1px solid #d8d8d8;
+  padding-left: 20px;
+  background-size: 16px 18px;
+  background-position: left 13px center;
+  background-repeat: no-repeat;
+}
+.inner .left .actions .saved {
+  display: none;
+  padding: 28px 0 0;
+  font: 14px "MONM";
+  text-align: center;
+  color: #59d929;
+  background-size: 24px;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.inner .right {
+  -webkit-box-flex: 709px;
+  -ms-flex: 709px 0 0px;
+  flex: 709px 0 0;
+}
+.inner .right .room {
+  margin-bottom: 20px;
+  border: 1px solid #e7e1dc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.inner .right .room .up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 64px;
+  padding: 0 16px;
+  background-color: #fbf7f4;
+}
+.inner .right .room .up .room-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.inner .right .room .up .room-left .name {
+  -webkit-box-flex: 124px;
+  -ms-flex: 124px 0 0px;
+  flex: 124px 0 0;
+  font: 24px "MONM";
+}
+.inner .right .room .up .room-left .price {
+  font: 18px "MONM";
+  color: #9f8877;
+  white-space: nowrap;
+}
+.inner .right .room .up .room-right a {
+  font: 14px "MONM";
+  color: #549bbc;
+  border-bottom: 1px dotted #549bbc;
+}
+.inner .right .room .up .room-right .hide {
+  display: inline-block;
+}
+.inner .right .room .up .room-right .show {
+  display: none;
+}
+.inner .right .room .in {
+  padding: 20px;
+}
+.inner .right .room .in .section {
+  padding-bottom: 25px;
+}
+.inner .right .room .in .section .name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 9px;
+  height: 32px;
+  padding-left: 43px;
+  font: 20px "MONM";
+  background-size: 32px;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+.inner .right .room .in .section .name.doors {
+  background-image: url("/app/img/budget/categories/doors.svg");
+}
+.inner .right .room .in .section .name.walls {
+  background-image: url("/app/img/budget/categories/walls.svg");
+}
+.inner .right .room .in .section .name.floor {
+  background-image: url("/app/img/budget/categories/floor.svg");
+}
+.inner .right .room .in .section .name.plumbing {
+  background-image: url("/app/img/budget/categories/plumbing.svg");
+}
+.inner .right .room .in .section .name.light {
+  background-image: url("/app/img/budget/categories/light.svg");
+}
+.inner .right .room .in .section .name.furniture {
+  background-image: url("/app/img/budget/categories/furniture.svg");
+}
+.inner .right .room .in .section .name.household {
+  background-image: url("/app/img/budget/categories/household.svg");
+}
+.inner .right .room .in .section .subsection {
+  margin-bottom: 23px;
+}
+.inner .right .room .in .section .subsection .name {
+  margin-bottom: 0;
+  font: 16px "MONM";
+}
+.inner .right .room .in .section .subsection .per {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-left: 43px;
+  font: 14px "MONR";
+  color: #545454;
+}
+.inner .right .room .in .section .subsection .per .tooltip-d {
+  display: inline-block;
+  position: relative;
+  margin-top: 0;
+  top: 2px;
+  margin-left: 6px;
+  width: 16px;
+  height: 16px;
+  background-size: 16px;
+}
+.inner .right .room .in .section .subsection .per .tooltip-d .tooltip-content {
+  visibility: hidden;
+  position: absolute;
+  top: 40px;
+  left: -100px;
+  width: 265px;
+  border-radius: 10px;
+  padding: 13px 15px 13px 19px;
+  background-color: #656565;
+  font: 12px/15px "MONR";
+  color: #fff;
+  z-index: 1;
+  opacity: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.inner .right .room .in .section .subsection .per .tooltip-d .tooltip-content::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -6px;
+  left: 100px;
+  width: 16px;
+  height: 6px;
+  background-size: cover;
+}
+.inner .right .room .in .section .subsection .per .tooltip-d:hover .tooltip-content {
+  visibility: visible;
+  opacity: 1;
+  top: 27px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.inner .right .room .in .section .subsection .per .tooltip-m,
+.inner .right .room .in .section .subsection .per .tooltip-m-content {
+  display: none;
+}
+.inner .right .room .in .section .subsection .answers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-left: 43px;
+}
+.inner .right .room .in .section .subsection .answers .answer {
+  -webkit-box-flex: 195px;
+  -ms-flex: 195px 0 0px;
+  flex: 195px 0 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  height: 81px;
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  padding: 19px;
+  font: 16px "MUSR";
+  cursor: pointer;
+}
+.inner .right .room .in .section .subsection .answers .answer .price {
+  margin-top: 6px;
+  font: 13px "MONR";
+  color: #545454;
+}
+.inner .right .room .in .section .subsection .answers .answer .price span {
+  font: inherit;
+  color: inherit;
+}
+.inner .right .room .in .section .subsection .answers .active {
+  border: 2px solid #59d929;
+  padding: 18px;
+  background-color: #eefee8;
+}
+.inner .right .room .in .continue {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-bottom: 9px;
+}
+.inner .right .room .in .continue a {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 12px;
+  height: 58px;
+  border-radius: 4px;
+  padding: 0 30px;
+  background-color: #59d929;
+  font: 18px "MONM";
+  color: #fff;
+}
+.inner .right .room .in .continue a.disabled {
+  opacity: 0.4;
+}
+.inner .right .room .in .continue .desc {
+  font: 14px "MONR";
+  color: #545454;
+}
+.inner .right .room.minimized .up .room-right .hide {
+  display: none;
+}
+.inner .right .room.minimized .up .room-right .show {
+  display: inline-block;
+}
+.inner .right .finish {
+  padding: 10px 0 60px;
+}
+.inner .right .finish .total {
+  margin-bottom: 53px;
+  font: 16px "MONM";
+}
+.inner .right .finish .total .val {
+  margin-top: 8px;
+  font: 32px "MONM";
+}
+.inner .right .finish textarea {
+  margin-bottom: 41px;
+  width: 100%;
+  height: 100px;
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  padding: 14px;
+  font: 16px "MONM";
+}
+.inner .right .finish .next {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.inner .right .finish .next a {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 13px;
+  border-radius: 4px;
+  height: 58px;
+  padding: 0 17px 0 20px;
+  background-color: #59d929;
+  font: 18px "MONB";
+  color: #fff;
+  text-decoration: none;
+}
+.inner .right .finish .next a img {
+  margin-left: 7px;
+  -webkit-box-flex: 24px;
+  -ms-flex: 24px 0 0px;
+  flex: 24px 0 0;
+  height: 24px;
+}
+.inner .right .finish .next .desc {
+  width: 312px;
+  font: 14px "MONR";
+  color: #545454;
+  text-align: center;
+}

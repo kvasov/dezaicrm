@@ -1,0 +1,100 @@
+<section
+  class="step-budget"
+  ng-controller="BudgetController"
+  ng-init='init({"budget_id":14560,"rooms":[{"name":"Кухня","categories":[{"name":"Настенные покрытия","cls":"walls","answers":[{"id":40,"name":"Обои","unit":"рулон 1 м. ширина","tooltip":null,"label":"за 1 рулон 1 м. ширина","values":[{"segment":"Cтандарт","price":"2500"},{"segment":"Комфорт","price":"2500-7000"},{"segment":"Премиум","price":"7000"}],"quantity":"1"},{"id":41,"name":"Краска","unit":"банка 9-10 л.","tooltip":null,"label":"за 1 банка 9-10 л.","values":[{"segment":"Cтандарт","price":"5000"},{"segment":"Комфорт","price":"5000-15000"},{"segment":"Премиум","price":"15000"}],"quantity":"1"}],"answer_ids":["40","41"]},{"name":"Свет","cls":"light","answers":[{"id":45,"name":"Люстры и светильники","unit":"комплект","tooltip":null,"label":"за 1 комплект","values":[{"segment":"Cтандарт","price":"10000"},{"segment":"Комфорт","price":"10000-20000"},{"segment":"Премиум","price":"20000"}],"quantity":"1"}],"answer_ids":["45"]},{"name":"Мебель","cls":"furniture","answers":[{"id":49,"name":"Стол","unit":"шт.","tooltip":null,"label":"за 1 шт.","values":[{"segment":"Cтандарт","price":"20000"},{"segment":"Комфорт","price":"20000-35000"},{"segment":"Премиум","price":"35000"}],"quantity":"1"},{"id":50,"name":"Стулья","unit":"шт.","tooltip":null,"label":"за 4 шт.","values":[{"segment":"Cтандарт","price":"7000"},{"segment":"Комфорт","price":"7000-15000"},{"segment":"Премиум","price":"15000"}],"quantity":"4"}],"answer_ids":["49","50"]}],"answer_ids":["40","41","45","49","50"]},{"name":"Гостиная","categories":[{"name":"Настенные покрытия","cls":"walls","answers":[{"id":92,"name":"Обои","unit":"рулон 1 м. ширина","tooltip":null,"label":"за 1 рулон 1 м. ширина","values":[{"segment":"Cтандарт","price":"2500"},{"segment":"Комфорт","price":"2500-7000"},{"segment":"Премиум","price":"7000"}],"quantity":"1"},{"id":93,"name":"Краска","unit":"банка 9-10 л.","tooltip":null,"label":"за 2 банка 9-10 л.","values":[{"segment":"Cтандарт","price":"5000"},{"segment":"Комфорт","price":"5000-15000"},{"segment":"Премиум","price":"15000"}],"quantity":"2"}],"answer_ids":["92","93"]},{"name":"Свет","cls":"light","answers":[{"id":97,"name":"Люстры и светильники","unit":"комплект","tooltip":null,"label":"за 2 комплект","values":[{"segment":"Cтандарт","price":"25000"},{"segment":"Комфорт","price":"25000-45000"},{"segment":"Премиум","price":"45000"}],"quantity":"2"}],"answer_ids":["97"]},{"name":"Мебель","cls":"furniture","answers":[{"id":98,"name":"Диван","unit":"шт.","tooltip":null,"label":"за 1 шт.","values":[{"segment":"Cтандарт","price":"50000"},{"segment":"Комфорт","price":"50000-150000"},{"segment":"Премиум","price":"150000"}],"quantity":"1"},{"id":99,"name":"Кресло","unit":"шт.","tooltip":null,"label":"за 1 шт.","values":[{"segment":"Cтандарт","price":"15000"},{"segment":"Комфорт","price":"15000-30000"},{"segment":"Премиум","price":"30000"}],"quantity":"1"},{"id":100,"name":"Тумба под ТВ","unit":"шт.","tooltip":null,"label":"за 1 шт.","values":[{"segment":"Cтандарт","price":"30000"},{"segment":"Комфорт","price":"30000-100000"},{"segment":"Премиум","price":"100000"}],"quantity":"1"},{"id":102,"name":"Журнальный столик","unit":"шт.","tooltip":null,"label":"за 1 шт.","values":[{"segment":"Cтандарт","price":"10000"},{"segment":"Комфорт","price":"10000-30000"},{"segment":"Премиум","price":"30000"}],"quantity":"1"}],"answer_ids":["98","99","100","102"]}],"answer_ids":["92","93","97","98","99","100","102"]}],"can_to_approval":true,"state":"approval_budget","answers":{"40":{"price":"2500","quantity":"1"},"41":{"price":"5000-15000","quantity":"1"},"45":{"price":"10000-20000","quantity":"1"},"49":{"price":"20000-35000","quantity":"1"},"50":{"price":"7000","quantity":"4"},"92":{"price":null,"quantity":"1"},"93":{"price":null,"quantity":"2"},"97":{"price":null,"quantity":"2"},"98":{"price":null,"quantity":"1"},"99":{"price":null,"quantity":"1"},"100":{"price":null,"quantity":"1"},"102":{"price":null,"quantity":"1"}},"comment":null})'
+>
+  <div class="container">
+    <div class="title">Укажите планируемый бюджет для товаров</div>
+    <div class="subtitle">
+      чтобы наши дизайнеры смогли подобрать мебель и материалы
+    </div>
+    <div class="inner">
+      <div class="left">
+        <div class="progress">
+          <div
+            class="item"
+            ng-repeat="room in rooms"
+            ng-class="roomCls(room.answer_ids)"
+          >
+            {{room.name}}
+          </div>
+          <div class="item" ng-class="amountCls()">
+            Итоговая сумма и комментарии
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="save">Сохранить черновик</a>
+          <div class="saved">Изменения сохранены</div>
+        </div>
+      </div>
+      <div class="right">
+        <div
+          class="room"
+          ng-repeat="room in rooms"
+          ng-class="minimizedCls(room)"
+          ng-if="displayRoom(room)"
+        >
+          <div class="up">
+            <div class="room-left">
+              <div class="name">{{room.name}}</div>
+              <div class="price">
+                {{amountDisplay(roomAmount(room.answer_ids))}}
+              </div>
+            </div>
+            <div class="room-right">
+              <a class="hide">Свернуть</a>
+              <a class="show">{{showTxt(room.answer_ids)}}</a>
+            </div>
+          </div>
+
+          <div class="in" ng-style="{'display': inStyle(room)}">
+            <div class="section" ng-repeat="category in room.categories">
+              <div class="name" ng-class="category.cls">{{category.name}}</div>
+              <div class="subsection" ng-repeat="answer in category.answers">
+                <div class="name">{{answer.name}}</div>
+                <div class="per">
+                  {{answer.label}}
+
+                  <div class="tooltip-d" ng-if="answer.tooltip">
+                    <div class="tooltip-content">{{answer.tooltip}}</div>
+                  </div>
+
+                  <div class="tooltip-m" ng-if="answer.tooltip">
+                    <span>Что входит в комплект?</span>
+                  </div>
+                  <div class="tooltip-m-content">{{answer.tooltip}}</div>
+                </div>
+                <div class="answers">
+                  <div
+                    class="answer {{}}"
+                    ng-repeat="value in answer.values track by $index"
+                    ng-click="updatePrice(answer.id, value.price)"
+                    ng-class="answerCls(answer.id, value.price)"
+                  >
+                    {{room.name}}/{{category.cls}}/{{answer.name}}/{{value.segment}}
+                    <hr />
+                    {{value.segment}}
+                    <div class="price">
+                      <span>
+                        {{quantityPriceV2(value.price,
+                        answers[answer.id].quantity, $index)}} руб.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="continue" ng-if="!minimizedRoom(room)">
+              <a ng-click="nextRoom()" ng-class="nextCls(room.answer_ids)">
+                Продолжить
+              </a>
+              <div class="desc">Отметьте все, чтобы продолжить</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
